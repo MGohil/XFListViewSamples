@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFListViewSamples.Views.ListViewPages.TextCellSamplePage"
+             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages"
+             Title="Simple TextCell">
+    <ContentPage.BindingContext>
+        <local:TextCellSampleViewModel/>
+    </ContentPage.BindingContext>
+    <ListView
+            ItemsSource="{Binding Items}"
+            CachingStrategy="RecycleElement">
+        <!--TextCell is a Built in Cell, Which Represnet only Text in a List-->
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding .}" TextColor="Black"/>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

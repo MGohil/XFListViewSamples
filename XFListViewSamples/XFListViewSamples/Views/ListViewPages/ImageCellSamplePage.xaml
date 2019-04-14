@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFListViewSamples.Views.ListViewPages.ImageCellSamplePage"
+             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages">
+    <ContentPage.BindingContext>
+        <local:ImageCellSampleViewModel/>
+    </ContentPage.BindingContext>
+    <ListView
+            ItemsSource="{Binding Items}"
+            CachingStrategy="RecycleElement">
+        <!--ImageCell is a Built in Cell, which is similar to the TextCell but has an Image also-->
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ImageCell Text="{Binding Title}" Detail="{Binding Description}" ImageSource="{Binding MyImageURL}"/>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFListViewSamples.Views.MainPages.MenuPage"
+             Title="Menu">
+    <StackLayout VerticalOptions="FillAndExpand">
+        <ListView x:Name="ListViewMenu">
+            <ListView.Header>
+                <Grid HeightRequest="70">
+                    <Label Text="ListView Samples" VerticalOptions="Center" Margin="10" FontSize="20"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Label Text="{Binding Title}" FontSize="15"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
