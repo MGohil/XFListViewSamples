@@ -22,7 +22,7 @@ namespace XFListViewSamples.Views.MainPages
                 new HomeMenuItem { Id = MenuItemType.SwitchCellSample, Title = "Simple SwitchCell" },
                 new HomeMenuItem { Id = MenuItemType.EntryCellSample, Title = "Simple EntryCell" },
                 new HomeMenuItem { Id = MenuItemType.ImageCellSample, Title = "Simple ImageCell" },
-
+                new HomeMenuItem { Id = MenuItemType.CustomCellSample, Title = "Custom Cell" },
             };
 
             ListViewMenu.ItemsSource = menuItems;
