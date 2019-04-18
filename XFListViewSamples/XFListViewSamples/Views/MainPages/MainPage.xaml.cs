@@ -38,8 +38,11 @@ namespace XFListViewSamples.Views.MainPages
                     case (int)MenuItemType.ImageCellSample:
                         MenuPages.Add(id, new NavigationPage(new ImageCellSamplePage() { Title = title }));
                         break;
-                    case (int)MenuItemType.CustomCellSample:
-                        MenuPages.Add(id, new NavigationPage(new CustomCellSamplePage() { Title = title }));
+                    case (int)MenuItemType.CustomCellOne:
+                        MenuPages.Add(id, new NavigationPage(new CustomCellOnePage() { Title = title }));
+                        break;
+                    case (int)MenuItemType.CustomCellTwo:
+                        MenuPages.Add(id, new NavigationPage(new CustomCellTwoPage() { Title = title }));
                         break;
                 }
             }

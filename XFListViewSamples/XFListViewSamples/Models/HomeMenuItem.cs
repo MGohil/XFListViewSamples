@@ -6,7 +6,8 @@
         ImageCellSample,
         SwitchCellSample,
         EntryCellSample,
-        CustomCellSample,
+        CustomCellOne,
+        CustomCellTwo,
     }
     public class HomeMenuItem
     {
