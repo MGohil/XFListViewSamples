@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XFListViewSamples.Views.ListViewPages.DynamicRowHeightPage"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"  
              xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages">
     <ContentPage.BindingContext>
         <local:DynamicRowHeightViewModel/>
@@ -20,7 +21,7 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <StackLayout Orientation="Vertical" Grid.Column="0" VerticalOptions="Start">
-                                <Image Source="{Binding ImageURL}" BackgroundColor="#F5F5F5" />
+                                <ff:CachedImage Source="{Binding ImageURL}" BackgroundColor="#F5F5F5" />
                                 <Label Text="{Binding Price}" HorizontalOptions="Center" TextColor="Orange" FontSize="20">
                                     <Label.FormattedText>
                                         <FormattedString>

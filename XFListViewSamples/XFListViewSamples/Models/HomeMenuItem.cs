@@ -9,7 +9,8 @@
         CustomCellOne,
         CustomCellTwo,
         AlternateRowColor,
-        DynamicRowHeight
+        DynamicRowHeight,
+        ExpandableRow
     }
     public class HomeMenuItem
     {

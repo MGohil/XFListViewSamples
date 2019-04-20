@@ -26,6 +26,8 @@ namespace XFListViewSamples.Views.MainPages
                 new HomeMenuItem { Id = MenuItemType.CustomCellTwo, Title = "Custom Cell 2" },
                 new HomeMenuItem { Id = MenuItemType.AlternateRowColor, Title = "Alternate RowColor" },
                 new HomeMenuItem { Id = MenuItemType.DynamicRowHeight, Title = "Dynamic Row Height" },
+                new HomeMenuItem { Id = MenuItemType.ExpandableRow, Title = "Expandable Row" },
+
             };
 
             ListViewMenu.ItemsSource = menuItems;

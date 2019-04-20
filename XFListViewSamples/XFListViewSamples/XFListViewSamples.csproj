@@ -33,6 +33,9 @@
     <Compile Update="Views\ListViewPages\AlternateRowColorPage.xaml.cs">
       <DependentUpon>AlternateRowColorPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\ListViewPages\ExpandableRowPage.xaml.cs">
+      <DependentUpon>ExpandableRowPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ListViewPages\DynamicRowHeightPage.xaml.cs">
       <DependentUpon>DynamicRowHeightPage.xaml</DependentUpon>
     </Compile>

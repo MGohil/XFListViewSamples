@@ -4,9 +4,10 @@
              x:Class="XFListViewSamples.Views.ListViewPages.AlternateRowColorPage"
              xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages"
              xmlns:models="clr-namespace:XFListViewSamples.Models"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"  
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-mc:Ignorable="d">
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
     <ContentPage.BindingContext>
         <local:AlternateRowColorViewModel/>
     </ContentPage.BindingContext>
@@ -39,7 +40,7 @@ mc:Ignorable="d">
                                 <ColumnDefinition Width="40"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" Source="{Binding ProfilePic}"/>
+                            <ff:CachedImage Grid.Column="0" Source="{Binding ProfilePic}"/>
                             <Grid Grid.Column="1" RowSpacing="0">
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>

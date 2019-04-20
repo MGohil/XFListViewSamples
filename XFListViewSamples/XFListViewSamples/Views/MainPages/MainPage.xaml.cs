@@ -50,6 +50,9 @@ namespace XFListViewSamples.Views.MainPages
                     case (int)MenuItemType.DynamicRowHeight:
                         MenuPages.Add(id, new NavigationPage(new DynamicRowHeightPage() { Title = title }));
                         break;
+                    case (int)MenuItemType.ExpandableRow:
+                        MenuPages.Add(id, new NavigationPage(new ExpandableRowPage() { Title = title }));
+                        break;
                 }
             }
 
