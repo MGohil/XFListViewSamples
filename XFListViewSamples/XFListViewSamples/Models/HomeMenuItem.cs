@@ -8,6 +8,8 @@
         EntryCellSample,
         CustomCellOne,
         CustomCellTwo,
+        AlternateRowColor,
+        DynamicRowHeight
     }
     public class HomeMenuItem
     {

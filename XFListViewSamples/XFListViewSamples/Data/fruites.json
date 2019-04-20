@@ -1,0 +1,27 @@
+﻿
+   [
+    {
+      "name" : "Apple",
+      "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/265px-Red_Apple.jpg",
+	  "price" : 2,
+	  "about" : "An apple a day keeps a doctor away. Apple is one of the healty food to include in your diet. Apple is a miracle food. Apples are extremely rich in important antioxidants, flavanoids, and dietary fiber. It contains the Vitamin C, B-Complex, Dietary fiber, Calcium, Pottasium. One fact, because apples are fairly acidic, they could be up to four times more damaging to teeth than carbonated drinks."
+    },
+    {
+      "name" : "Banana",
+      "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Bananas_white_background_DS.jpg/320px-Bananas_white_background_DS.jpg",
+	  "price" : 3.5,
+	  "about" : "Banana is the most widely used fruites in the world. It lowers your blood pressure and reduce the risk of cancer and asthama. Bananas are rich in a mineral called potassium. One serving, or one medium ripe banana, provides about 110 calories, 0 gram fat, 1 gram protein, 28 grams carbohydrate, 15 grams sugar (naturally occurring), 3 grams fiber, and 450 mg potassium. In many countries, banana and plantain leaves are recycled as food wrappers, such as to hold tamales and meats. They are also used to cover or wrap various foods while cooking to help seal in flavor."
+    },
+    {
+      "name" : "Grapes",
+      "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Table_grapes_on_white.jpg/320px-Table_grapes_on_white.jpg",
+	  "price" : 5.8,
+	  "about" : "Grapes come in different colors and forms. There are red, green, and purple grapes, seedless grapes, grape jelly, grape jam and grape juice, raisins, currents, and sultanas, not to mention wine."
+    },
+    {
+      "name" : "Pineapple",
+      "image" : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pineapple_and_cross_section.jpg/286px-Pineapple_and_cross_section.jpg",
+	  "price" : 7,
+	  "about" : "The pineapple (Ananas comosus) is a tropical plant with an edible fruit, also called pineapples, and the most economically significant plant in the family Bromeliaceae. Pineapples may be cultivated from the offset produced at the top of the fruit, possibly flowering in five to ten months and fruiting in the following six months. Pineapples do not ripen significantly after harvest. In 2016, Costa Rica, Brazil, and the Philippines accounted for nearly one-third of the world's production of pineapples."
+    }
+  ]

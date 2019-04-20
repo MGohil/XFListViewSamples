@@ -24,7 +24,8 @@ namespace XFListViewSamples.Views.MainPages
                 new HomeMenuItem { Id = MenuItemType.ImageCellSample, Title = "Simple ImageCell" },
                 new HomeMenuItem { Id = MenuItemType.CustomCellOne, Title = "Custom Cell 1" },
                 new HomeMenuItem { Id = MenuItemType.CustomCellTwo, Title = "Custom Cell 2" },
-
+                new HomeMenuItem { Id = MenuItemType.AlternateRowColor, Title = "Alternate RowColor" },
+                new HomeMenuItem { Id = MenuItemType.DynamicRowHeight, Title = "Dynamic Row Height" },
             };
 
             ListViewMenu.ItemsSource = menuItems;

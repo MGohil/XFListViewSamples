@@ -44,6 +44,12 @@ namespace XFListViewSamples.Views.MainPages
                     case (int)MenuItemType.CustomCellTwo:
                         MenuPages.Add(id, new NavigationPage(new CustomCellTwoPage() { Title = title }));
                         break;
+                    case (int)MenuItemType.AlternateRowColor:
+                        MenuPages.Add(id, new NavigationPage(new AlternateRowColorPage() { Title = title }));
+                        break;
+                    case (int)MenuItemType.DynamicRowHeight:
+                        MenuPages.Add(id, new NavigationPage(new DynamicRowHeightPage() { Title = title }));
+                        break;
                 }
             }
 

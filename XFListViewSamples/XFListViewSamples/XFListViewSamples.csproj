@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\fruites.json" />
     <None Remove="Data\users.json" />
   </ItemGroup>
 
@@ -25,6 +26,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Data\fruites.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\ListViewPages\AlternateRowColorPage.xaml.cs">
+      <DependentUpon>AlternateRowColorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ListViewPages\DynamicRowHeightPage.xaml.cs">
+      <DependentUpon>DynamicRowHeightPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ListViewPages\CustomCellTwoPage.xaml.cs">
       <DependentUpon>CustomCellTwoPage.xaml</DependentUpon>
     </Compile>

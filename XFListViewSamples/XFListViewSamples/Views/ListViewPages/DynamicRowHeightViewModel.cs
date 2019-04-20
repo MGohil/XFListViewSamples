@@ -7,21 +7,21 @@ using XFListViewSamples.Services;
 
 namespace XFListViewSamples.Views.ListViewPages
 {
-    public class CustomCellTwoViewModel : BaseViewModel
+    public class DynamicRowHeightViewModel : BaseViewModel
     {
-        public List<UserModel> items = new List<UserModel>();
-        public List<UserModel> Items
+        public List<FruiteModel> items = new List<FruiteModel>();
+        public List<FruiteModel> Items
         {
             get { return items; }
             set { SetProperty(ref items, value); }
         }
 
-        public CustomCellTwoViewModel()
+        public DynamicRowHeightViewModel()
         {
             Task.Run(async () =>
             {
-                var userData = new UserDataService();
-                Items = (await userData.GetItemsAsync(1, 50)).ToList();
+                var fruitesData = new FruitesDataService();
+                Items = (await fruitesData.GetItemsAsync(1, 50)).ToList();
             });
         }
     }
