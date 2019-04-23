@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XFListViewSamples.Views.ListViewPages;
+using XFListViewSamples.Views.ListViewPages.DynamicCells;
 
 namespace XFListViewSamples.Views.MainPages
 {
@@ -52,6 +53,9 @@ namespace XFListViewSamples.Views.MainPages
                         break;
                     case (int)MenuItemType.ExpandableRow:
                         MenuPages.Add(id, new NavigationPage(new ExpandableRowPage() { Title = title }));
+                        break;
+                    case (int)MenuItemType.DynamicCells:
+                        MenuPages.Add(id, new NavigationPage(new DynamicCellTypesPage() { Title = title }));
                         break;
                 }
             }

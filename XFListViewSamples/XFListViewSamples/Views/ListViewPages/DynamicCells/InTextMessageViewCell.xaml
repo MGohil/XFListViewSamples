@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFListViewSamples.Views.ListViewPages.DynamicCells.InTextMessageViewCell"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+    <Grid ColumnSpacing="2" Padding="5" VerticalOptions="Start">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image
+            HeightRequest="35"
+            WidthRequest="35"
+            Aspect="AspectFill"
+            HorizontalOptions="Center"
+            VerticalOptions="Start" 
+            Source="{Binding ProfilePic}"
+            d:Source="monkey1" />
+        <Frame Grid.Column="1" 
+               Padding="10" 
+               CornerRadius="15" 
+               OutlineColor="Transparent" 
+               HasShadow="False" 
+               BackgroundColor="WhiteSmoke" 
+               HorizontalOptions="Start" 
+               VerticalOptions="Start">
+            <Label TextColor="Black" 
+                   Text="{Binding Text}" 
+                   HorizontalOptions="Start"
+                   d:Text="This is a design time text." />
+        </Frame>
+        <Label Grid.Row="1" 
+               Grid.Column="1" 
+               Text="{Binding MessageDate, StringFormat='{0:MM/dd/yyyy hh:mm tt}'}" 
+               d:Text="05/24/2019 12:13 PM"
+               TextColor="Gray" 
+               FontSize="Micro"/>
+    </Grid>
+</ViewCell>

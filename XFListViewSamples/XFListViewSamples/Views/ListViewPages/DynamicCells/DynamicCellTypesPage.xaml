@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFListViewSamples.Views.ListViewPages.DynamicCells.DynamicCellTypesPage"
+             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.DynamicCells"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+    <ContentPage.BindingContext>
+        <local:DynamicCellTypesViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ChatDataTemplateSelector x:Key="ChatDataTemplateSelector"></local:ChatDataTemplateSelector>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <ListView x:Name="chatListView"
+                      Grid.Row="0"
+                      ItemTemplate="{StaticResource ChatDataTemplateSelector}" 
+                      ItemsSource="{Binding Messages}"
+                      HasUnevenRows="True" 
+                      SeparatorVisibility="None">
+            </ListView>
+            <Grid x:Name="MessageControls"
+                  Grid.Row="1"
+                  Padding="5"
+                  HeightRequest="50"
+                  BackgroundColor="#EFEFF4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="70"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Entry Grid.Column="0" 
+                       HeightRequest="35" 
+                       Placeholder="Send Message"
+                       Text="{Binding TextMessage}"/>
+                <Button Grid.Column="1" 
+                        Text="Send" 
+                        Padding="0"
+                        VerticalOptions="Center"
+                        HeightRequest="35"
+                        CornerRadius="5"
+                        TextColor="White"
+                        BackgroundColor="Accent"
+                        Command="{Binding SendMessageCommand}"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

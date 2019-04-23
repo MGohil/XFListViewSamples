@@ -10,11 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\chatmessages.json" />
     <None Remove="Data\fruites.json" />
     <None Remove="Data\users.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Data\chatmessages.json" />
     <EmbeddedResource Include="Data\users.json" />
   </ItemGroup>
 
@@ -30,6 +32,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\ListViewPages\DynamicCells\DynamicCellTypesPage.xaml.cs">
+      <DependentUpon>DynamicCellTypesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ListViewPages\AlternateRowColorPage.xaml.cs">
       <DependentUpon>AlternateRowColorPage.xaml</DependentUpon>
     </Compile>
@@ -61,6 +66,18 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Views\ListViewPages\CustomCellOnePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ListViewPages\DynamicCells\InImageViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ListViewPages\DynamicCells\InTextMessageViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ListViewPages\DynamicCells\OutImageViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ListViewPages\DynamicCells\OutTextMessageViewCell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ListViewPages\TextCellSamplePage.xaml">

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFListViewSamples.Views.ListViewPages.DynamicCells.OutImageViewCell"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+    <Grid ColumnSpacing="2" Padding="5" VerticalOptions="Start">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image
+            Grid.Column="2"
+            HeightRequest="35"
+            WidthRequest="35"
+            Aspect="AspectFill"
+            HorizontalOptions="Center"
+            VerticalOptions="Start" 
+            Source="{Binding ProfilePic}" 
+            d:Source="monkey1" />
+        <Frame Grid.Row="0" Grid.Column="1" Padding="0" CornerRadius="15" WidthRequest="160" HorizontalOptions="End" OutlineColor="Transparent" HasShadow="False" BackgroundColor="#03A9F4">
+            <StackLayout Orientation="Vertical">
+                <Image Source="{Binding AttachmentURL}" d:Source="monkey3" Aspect="AspectFill" HeightRequest="150"/>
+                <Label Margin="10,5,10,10" Text="{Binding Text}" d:Text="This is design time text."  TextColor="White" VerticalOptions="Start"/>
+            </StackLayout>
+        </Frame>
+        <Label Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="End" Text="{Binding MessageDate, StringFormat='{0:MM/dd/yyyy hh:mm tt}'}" d:Text="05/24/2019 12:13 PM" TextColor="Gray" FontSize="Micro"/>
+    </Grid>
+</ViewCell>

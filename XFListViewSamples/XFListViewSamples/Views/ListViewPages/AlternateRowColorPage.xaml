@@ -21,15 +21,15 @@
             <d:ListView.ItemsSource>
                 <x:Array Type="{x:Type models:UserModel}">
                     <models:UserModel
-                            FirstName="Inside a Tribe of Hackers with cryptographer Marcus J Carey"
-                            LastName="Today"
-                            Email="This is a description for a podcast! It is pretty long, but that is awesome."
-                            Gender="3"/>
+                            FirstName="First"
+                            LastName="Last"
+                            Email="abc@email.com"
+                            Gender="Male"/>
                     <models:UserModel
-                            FirstName="Inside a Tribe of Hackers with cryptographer Marcus J Carey"
-                            LastName="Today"
-                            Email="This is a description for a podcast! It is pretty long, but that is awesome."
-                            Gender="3"/>
+                            FirstName="First"
+                            LastName="Last"
+                            Email="abc@email.com"
+                            Gender="Female"/>
                 </x:Array>
             </d:ListView.ItemsSource>
             <local:AlternateRowListView.ItemTemplate>
