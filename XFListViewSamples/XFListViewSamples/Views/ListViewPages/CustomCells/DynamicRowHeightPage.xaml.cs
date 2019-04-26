@@ -1,12 +1,12 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace XFListViewSamples.Views.ListViewPages
+namespace XFListViewSamples.Views.ListViewPages.CustomCells
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CustomCellOnePage : ContentPage
+    public partial class DynamicRowHeightPage : ContentPage
     {
-        public CustomCellOnePage()
+        public DynamicRowHeightPage()
         {
             InitializeComponent();
         }

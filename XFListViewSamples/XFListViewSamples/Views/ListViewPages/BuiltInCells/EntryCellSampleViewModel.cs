@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using XFListViewSamples.Common;
 
-namespace XFListViewSamples.Views.ListViewPages
+namespace XFListViewSamples.Views.ListViewPages.BuiltInCells
 {
     public class EntryCellSampleViewModel : BaseViewModel
     {

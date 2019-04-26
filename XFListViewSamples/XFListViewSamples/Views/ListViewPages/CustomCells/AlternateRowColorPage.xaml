@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XFListViewSamples.Views.ListViewPages.AlternateRowColorPage"
-             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages"
+             x:Class="XFListViewSamples.Views.ListViewPages.CustomCells.AlternateRowColorPage"
+             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.CustomCells"
              xmlns:models="clr-namespace:XFListViewSamples.Models"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"  
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"

@@ -35,37 +35,37 @@
     <Compile Update="Views\ListViewPages\DynamicCells\DynamicCellTypesPage.xaml.cs">
       <DependentUpon>DynamicCellTypesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\ListViewPages\AlternateRowColorPage.xaml.cs">
+    <Compile Update="Views\ListViewPages\CustomCells\AlternateRowColorPage.xaml.cs">
       <DependentUpon>AlternateRowColorPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\ListViewPages\ExpandableRowPage.xaml.cs">
+    <Compile Update="Views\ListViewPages\CustomCells\ExpandableRowPage.xaml.cs">
       <DependentUpon>ExpandableRowPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\ListViewPages\DynamicRowHeightPage.xaml.cs">
+    <Compile Update="Views\ListViewPages\CustomCells\DynamicRowHeightPage.xaml.cs">
       <DependentUpon>DynamicRowHeightPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\ListViewPages\CustomCellTwoPage.xaml.cs">
+    <Compile Update="Views\ListViewPages\CustomCells\CustomCellTwoPage.xaml.cs">
       <DependentUpon>CustomCellTwoPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\ListViewPages\CustomCellOnePage.xaml.cs">
+    <Compile Update="Views\ListViewPages\CustomCells\CustomCellOnePage.xaml.cs">
       <DependentUpon>CustomCellOnePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\ListViewPages\ImageCellSamplePage.xaml.cs">
+    <Compile Update="Views\ListViewPages\BuiltInCells\ImageCellSamplePage.xaml.cs">
       <DependentUpon>ImageCellSamplePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\ListViewPages\EntryCellSamplePage.xaml.cs">
+    <Compile Update="Views\ListViewPages\BuiltInCells\EntryCellSamplePage.xaml.cs">
       <DependentUpon>EntryCellSamplePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\ListViewPages\SwitchCellSamplePage.xaml.cs">
+    <Compile Update="Views\ListViewPages\BuiltInCells\SwitchCellSamplePage.xaml.cs">
       <DependentUpon>SwitchCellSamplePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\ListViewPages\TextCellSamplePage.xaml.cs">
+    <Compile Update="Views\ListViewPages\BuiltInCells\TextCellSamplePage.xaml.cs">
       <DependentUpon>TextCellSamplePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\ListViewPages\CustomCellOnePage.xaml">
+    <EmbeddedResource Update="Views\ListViewPages\CustomCells\CustomCellOnePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ListViewPages\DynamicCells\InImageViewCell.xaml">
@@ -80,7 +80,7 @@
     <EmbeddedResource Update="Views\ListViewPages\DynamicCells\OutTextMessageViewCell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ListViewPages\TextCellSamplePage.xaml">
+    <EmbeddedResource Update="Views\ListViewPages\BuiltInCells\TextCellSamplePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -107,5 +107,9 @@
     <None Update="Views\MainPages\MenuPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\ListViewPages\FeaturedCells\" />
   </ItemGroup>
 </Project>

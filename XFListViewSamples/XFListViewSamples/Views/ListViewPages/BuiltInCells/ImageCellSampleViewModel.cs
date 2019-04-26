@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 using XFListViewSamples.Common;
 
-namespace XFListViewSamples.Views.ListViewPages
+namespace XFListViewSamples.Views.ListViewPages.BuiltInCells
 {
     public class ImageCellSampleViewModel : BaseViewModel
     {

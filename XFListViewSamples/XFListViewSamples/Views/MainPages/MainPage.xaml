@@ -2,7 +2,7 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:views="clr-namespace:XFListViewSamples.Views.MainPages"
-                  xmlns:listviewpages="clr-namespace:XFListViewSamples.Views.ListViewPages"  
+            xmlns:builtInCells="clr-namespace:XFListViewSamples.Views.ListViewPages.BuiltInCells"  
             x:Class="XFListViewSamples.Views.MainPages.MainPage">
 
     <MasterDetailPage.Master>
@@ -17,7 +17,7 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <listviewpages:TextCellSamplePage />
+              <builtInCells:TextCellSamplePage />
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

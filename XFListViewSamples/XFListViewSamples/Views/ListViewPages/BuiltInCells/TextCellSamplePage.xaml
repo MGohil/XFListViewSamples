@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XFListViewSamples.Views.ListViewPages.ImageCellSamplePage"
-             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages">
+             x:Class="XFListViewSamples.Views.ListViewPages.BuiltInCells.TextCellSamplePage"
+             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.BuiltInCells"
+             Title="Simple TextCell">
     <ContentPage.BindingContext>
-        <local:ImageCellSampleViewModel/>
+        <local:TextCellSampleViewModel/>
     </ContentPage.BindingContext>
     <ListView
             ItemsSource="{Binding Items}"
             CachingStrategy="RecycleElement">
-        <!--ImageCell is a Built in Cell, which is similar to the TextCell but has an Image also-->
+        <!--TextCell is a Built in Cell, Which Represnet only Text in a List-->
         <ListView.ItemTemplate>
             <DataTemplate>
-                <ImageCell Text="{Binding Title}" Detail="{Binding Description}" ImageSource="{Binding MyImageURL}"/>
+                <TextCell Text="{Binding .}" TextColor="Black"/>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>

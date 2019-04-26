@@ -1,12 +1,12 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace XFListViewSamples.Views.ListViewPages
+namespace XFListViewSamples.Views.ListViewPages.CustomCells
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SwitchCellSamplePage : ContentPage
+    public partial class CustomCellTwoPage : ContentPage
     {
-        public SwitchCellSamplePage()
+        public CustomCellTwoPage()
         {
             InitializeComponent();
         }

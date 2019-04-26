@@ -5,7 +5,7 @@ using XFListViewSamples.Common;
 using XFListViewSamples.Models;
 using XFListViewSamples.Services;
 
-namespace XFListViewSamples.Views.ListViewPages
+namespace XFListViewSamples.Views.ListViewPages.CustomCells
 {
     public class CustomCellTwoViewModel : BaseViewModel
     {
