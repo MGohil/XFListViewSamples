@@ -7,6 +7,7 @@ using XFListViewSamples.Views.ListViewPages;
 using XFListViewSamples.Views.ListViewPages.DynamicCells;
 using XFListViewSamples.Views.ListViewPages.BuiltInCells;
 using XFListViewSamples.Views.ListViewPages.CustomCells;
+using XFListViewSamples.Views.ListViewPages.HeaderAndFooter;
 
 namespace XFListViewSamples.Views.MainPages
 {
@@ -58,6 +59,9 @@ namespace XFListViewSamples.Views.MainPages
                         break;
                     case (int)MenuItemType.DynamicCells:
                         MenuPages.Add(id, new NavigationPage(new DynamicCellTypesPage() { Title = title }));
+                        break;
+                    case (int)MenuItemType.ListViewHeader:
+                        MenuPages.Add(id, new NavigationPage(new ListViewHeaderPage() { Title = title }));
                         break;
                 }
             }

@@ -13,9 +13,11 @@
     <None Remove="Data\chatmessages.json" />
     <None Remove="Data\fruites.json" />
     <None Remove="Data\users.json" />
+    <None Remove="Data\weather.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Data\weather.json" />
     <EmbeddedResource Include="Data\chatmessages.json" />
     <EmbeddedResource Include="Data\users.json" />
   </ItemGroup>
@@ -62,6 +64,9 @@
     <Compile Update="Views\ListViewPages\BuiltInCells\TextCellSamplePage.xaml.cs">
       <DependentUpon>TextCellSamplePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\ListViewPages\HeaderAndFooter\ListViewHeaderPage.xaml.cs">
+      <DependentUpon>ListViewHeaderPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -81,6 +86,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ListViewPages\BuiltInCells\TextCellSamplePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ListViewPages\HeaderAndFooter\ListViewHeaderPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -107,9 +115,5 @@
     <None Update="Views\MainPages\MenuPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\ListViewPages\FeaturedCells\" />
   </ItemGroup>
 </Project>

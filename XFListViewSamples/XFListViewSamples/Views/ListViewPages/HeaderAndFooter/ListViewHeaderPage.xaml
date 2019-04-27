@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFListViewSamples.Views.ListViewPages.HeaderAndFooter.ListViewHeaderPage"
+             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.HeaderAndFooter"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+    <ContentPage.BindingContext>
+        <local:ListViewHeaderViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ListView x:Name="ListViewMenu" 
+                  ItemsSource="{Binding Weathers}"
+                  SelectedItem="{Binding SelectedWeather}"
+                  RowHeight="60">
+            <ListView.Header>
+                <Grid HeightRequest="200" BackgroundColor="#2196F3" RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" FontSize="15" TextColor="White">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding SelectedWeather.Date, StringFormat='{0:dddd, dd MMMM}'}" d:Text="April 5" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0" WidthRequest="100" VerticalOptions="Center" Orientation="Vertical" Spacing="0" HorizontalOptions="Start" Margin="20,0,0,0">
+                            <Image Source="{Binding SelectedWeather.LargeIconURL}" d:Source="sun.png" HeightRequest="90" WidthRequest="90" />
+                            <Label Text="{Binding SelectedWeather.Description}" d:Text="Sunny" TextColor="White" FontSize="12" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1" VerticalOptions="Center" Orientation="Vertical" Spacing="0" HorizontalOptions="End" Margin="0,0,20,0">
+                            <Label TextColor="White" FontSize="30" HorizontalOptions="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding SelectedWeather.MaxTemp}" d:Text="17"/>
+                                        <Span Text=" "/>
+                                        <Span Text="&#186;C"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label TextColor="White" FontSize="20" HorizontalOptions="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding SelectedWeather.MinTemp}" d:Text="14"/>
+                                        <Span Text=" "/>
+                                        <Span Text="&#186;C"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Grid.Row="2" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="{Binding SmallIconURL}" d:Source="sun.png" Margin="10"/>
+                            <Label Grid.Column="1" VerticalOptions="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Date, StringFormat='{0:dd MMMM}'}" d:Text="25 April" TextColor="Black"/>
+                                        <Span Text="&#x0a;"/>
+                                        <Span Text="{Binding Description}" d:Text="Clear"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="2" TextColor="Black" FontSize="25" HorizontalOptions="Center" VerticalOptions="Center" Margin="5">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding MaxTemp}"/>
+                                        <Span Text="&#186;"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="3" FontSize="25" HorizontalOptions="Center" VerticalOptions="Center" Margin="5">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding MinTemp}"/>
+                                        <Span Text="&#186;"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

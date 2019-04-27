@@ -11,7 +11,8 @@
         AlternateRowColor,
         DynamicRowHeight,
         ExpandableRow,
-        DynamicCells
+        DynamicCells,
+        ListViewHeader
     }
     public class HomeMenuItem
     {

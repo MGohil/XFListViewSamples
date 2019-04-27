@@ -1,0 +1,82 @@
+﻿[
+	{
+		"date" : "2019-04-21T00:00:00.000",
+		"description" : "Partly Sunny",
+		"small_icon_url" : "https://uds-static.api.aero/weather/icon/sm/03.png",
+		"large_icon_url" : "https://uds-static.api.aero/weather/icon/lg/03.png",
+		"min" : 29,
+		"max" : 33
+	},
+	{
+		"date" : "2019-04-22T00:00:00.000",
+		"description" : "Mostly Sunny",
+		"small_icon_url" : "https://uds-static.api.aero/weather/icon/sm/02.png",
+		"large_icon_url" : "https://uds-static.api.aero/weather/icon/lg/02.png",
+		"min" : 32,
+		"max" : 36
+	},
+	{
+		"date" : "2019-04-23T00:00:00.000",
+		"description" : "Partly Sunny",
+		"small_icon_url" : "https://uds-static.api.aero/weather/icon/sm/03.png",
+		"large_icon_url" : "https://uds-static.api.aero/weather/icon/lg/03.png",
+		"min" : 28,
+		"max" : 34
+	},
+	{
+		"date" : "2019-04-24T00:00:00.000",
+		"description" : "Mostly Cloudy",
+		"small_icon_url" : "https://uds-static.api.aero/weather/icon/sm/06.png",
+		"large_icon_url" : "https://uds-static.api.aero/weather/icon/lg/06.png",
+		"min" : 25,
+		"max" : 28
+	},
+	{
+		"date" : "2019-04-25T00:00:00.000",
+		"description" : "Showers",
+		"small_icon_url" : "https://uds-static.api.aero/weather/icon/sm/12.png",
+		"large_icon_url" : "https://uds-static.api.aero/weather/icon/lg/12.png",
+		"min" : 23,
+		"max" : 27
+	},
+	{
+		"date" : "2019-04-26T00:00:00.000",
+		"description" : "Partly Sunny with Showers",
+		"small_icon_url" : "https://uds-static.api.aero/weather/icon/sm/14.png",
+		"large_icon_url" : "https://uds-static.api.aero/weather/icon/lg/14.png",
+		"min" : 26,
+		"max" : 32
+	},
+	{
+		"date" : "2019-04-27T00:00:00.000",
+		"description" : "Sunny",
+		"small_icon_url" : "https://uds-static.api.aero/weather/icon/sm/01.png",
+		"large_icon_url" : "https://uds-static.api.aero/weather/icon/lg/01.png",
+		"min" : 30,
+		"max" : 35
+	},
+	{
+		"date" : "2019-04-28T00:00:00.000",
+		"description" : "Sunny",
+		"small_icon_url" : "https://uds-static.api.aero/weather/icon/sm/01.png",
+		"large_icon_url" : "https://uds-static.api.aero/weather/icon/lg/01.png",
+		"min" : 30,
+		"max" : 35
+	},
+	{
+		"date" : "2019-04-29T00:00:00.000",
+		"description" : "Mostly Sunny",
+		"small_icon_url" : "https://uds-static.api.aero/weather/icon/sm/02.png",
+		"large_icon_url" : "https://uds-static.api.aero/weather/icon/lg/02.png",
+		"min" : 32,
+		"max" : 36
+	},
+	{
+		"date" : "2019-04-30T00:00:00.000",
+		"description" : "Partly Sunny",
+		"small_icon_url" : "https://uds-static.api.aero/weather/icon/sm/03.png",
+		"large_icon_url" : "https://uds-static.api.aero/weather/icon/lg/03.png",
+		"min" : 28,
+		"max" : 34
+	}
+]
