@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XFListViewSamples.Views.ListViewPages;
 using XFListViewSamples.Views.ListViewPages.DynamicCells;
 using XFListViewSamples.Views.ListViewPages.BuiltInCells;
 using XFListViewSamples.Views.ListViewPages.CustomCells;
@@ -18,7 +17,7 @@ namespace XFListViewSamples.Views.MainPages
         public MainPage()
         {
             InitializeComponent();
-
+            NavigationPage.SetHasNavigationBar(this, false);
             MasterBehavior = MasterBehavior.Popover;
 
             MenuPages.Add((int)MenuItemType.TextCellSample, (NavigationPage)Detail);
