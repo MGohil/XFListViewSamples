@@ -28,7 +28,8 @@ namespace XFListViewSamples.Views.MainPages
                 new HomeMenuItem { Id = MenuItemType.DynamicRowHeight, Title = "Dynamic Row Height" },
                 new HomeMenuItem { Id = MenuItemType.ExpandableRow, Title = "Expandable Row" },
                 new HomeMenuItem { Id = MenuItemType.DynamicCells, Title = "Dynamic Cells" },
-                new HomeMenuItem { Id = MenuItemType.ListViewHeader, Title = "List Header" },
+                new HomeMenuItem { Id = MenuItemType.ListViewHeader, Title = "ListView Header" },
+                new HomeMenuItem { Id = MenuItemType.ListViewFooter, Title = "ListView Footer" },
             };
 
             ListViewMenu.ItemsSource = menuItems;

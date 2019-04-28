@@ -12,11 +12,13 @@
   <ItemGroup>
     <None Remove="Data\chatmessages.json" />
     <None Remove="Data\fruites.json" />
+    <None Remove="Data\incomeexpence.json" />
     <None Remove="Data\users.json" />
     <None Remove="Data\weather.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Data\incomeexpence.json" />
     <EmbeddedResource Include="Data\weather.json" />
     <EmbeddedResource Include="Data\chatmessages.json" />
     <EmbeddedResource Include="Data\users.json" />
@@ -63,6 +65,9 @@
     </Compile>
     <Compile Update="Views\ListViewPages\BuiltInCells\TextCellSamplePage.xaml.cs">
       <DependentUpon>TextCellSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ListViewPages\HeaderAndFooter\ListViewFooterPage.xaml.cs">
+      <DependentUpon>ListViewFooterPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\ListViewPages\HeaderAndFooter\ListViewHeaderPage.xaml.cs">
       <DependentUpon>ListViewHeaderPage.xaml</DependentUpon>

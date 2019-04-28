@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFListViewSamples.Views.ListViewPages.HeaderAndFooter.ListViewFooterPage"
+             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.HeaderAndFooter"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+    <ContentPage.BindingContext>
+        <local:ListViewFooterViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding IncomeExpenses}"
+                  IsVisible="{Binding IsItemsLoaded}"
+                  RowHeight="60">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid BackgroundColor="White" Padding="15" ColumnSpacing="25">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="{Binding Month}" d:Text="January" FontSize="18" VerticalOptions="Center"/>
+                            <Label Grid.Column="1" Text="{Binding Income, StringFormat='{}{0:N0}'}" d:Text="52,000" FontSize="22" TextColor="Green" Opacity="0.6" VerticalOptions="Center"/>
+                            <Label Grid.Column="2" Text="{Binding Expense, StringFormat='{}{0:N0}'}" d:Text="32,000" FontSize="22" TextColor="Red" Opacity="0.6" VerticalOptions="Center"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Footer>
+                <Grid BackgroundColor="WhiteSmoke" Padding="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" HorizontalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Income" TextColor="Accent"/>
+                                <Span Text="&#x0a;"/>
+                                <Span Text="&#x0a;"/>
+                                <Span Text="{Binding TotalIncome, StringFormat='{}{0:0,0}'}" d:Text="656,000" FontSize="25" TextColor="Green"/>
+                                <Span Text="&#x0a;"/>
+                                <Span Text="100" FontSize="20" TextColor="Green"/>
+                                <Span Text="%" TextColor="Green"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column="1" BackgroundColor="Gray"/>
+                    <Label Grid.Column="2" HorizontalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Expense" TextColor="Accent"/>
+                                <Span Text="&#x0a;"/>
+                                <Span Text="&#x0a;"/>
+                                <Span Text="{Binding TotalExpense, StringFormat='{}{0:0,0}'}" d:Text="456,000" FontSize="25" TextColor="Red"/>
+                                <Span Text="&#x0a;"/>
+                                <Span Text="{Binding ExpensePercentage, StringFormat='{}{0:#,0.0}'}" d:Text="69.51"  FontSize="20" TextColor="Red"/>
+                                <Span Text="%" TextColor="Red"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Grid Grid.Column="3" BackgroundColor="Gray"/>
+                    <Label Grid.Column="4" HorizontalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Savings" TextColor="Accent"/>
+                                <Span Text="&#x0a;"/>
+                                <Span Text="&#x0a;"/>
+                                <Span Text="{Binding TotalSavings, StringFormat='{}{0:0,0}'}" d:Text="200,000" FontSize="25"/>
+                                <Span Text="&#x0a;"/>
+                                <Span Text="{Binding SavingsPercentage, StringFormat='{}{0:#,0.0}'}" d:Text="30.49" FontSize="20"/>
+                                <Span Text="%"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Grid>
+            </ListView.Footer>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

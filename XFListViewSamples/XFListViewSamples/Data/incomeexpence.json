@@ -1,0 +1,74 @@
+﻿   [
+    {
+      "income" : 50000,
+	  "expense" : 45000,
+      "month" : "January",
+	  "year" : 2018
+    },
+    {
+      "income" : 55000,
+	  "expense" : 44400,
+      "month" : "February",
+	  "year" : 2018
+    },
+	{
+      "income" : 46000,
+	  "expense" : 46700,
+      "month" : "March",
+	  "year" : 2018
+    },
+	{
+      "income" : 50000,
+	  "expense" : 36800,
+      "month" : "April",
+	  "year" : 2018
+    },
+	{
+      "income" : 52000,
+	  "expense" : 51700,
+      "month" : "May",
+	  "year" : 2018
+    },
+	{
+      "income" : 49000,
+	  "expense" : 43900,
+      "month" : "June",
+	  "year" : 2018
+    },
+	{
+      "income" : 48000,
+	  "expense" : 36000,
+      "month" : "July",
+	  "year" : 2018
+    },
+	{
+      "income" : 61000,
+	  "expense" : 57900,
+      "month" : "August",
+	  "year" : 2018
+    },
+	{
+      "income" : 62000,
+	  "expense" : 54700,
+      "month" : "September",
+	  "year" : 2018
+    },
+	{
+      "income" : 59000,
+	  "expense" : 53400,
+      "month" : "October",
+	  "year" : 2018
+    },
+	{
+      "income" : 60000,
+	  "expense" : 47900,
+      "month" : "November",
+	  "year" : 2018
+    },
+	{
+      "income" : 65000,
+	  "expense" : 61200,
+      "month" : "December",
+	  "year" : 2018
+    }
+  ]

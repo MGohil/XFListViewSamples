@@ -12,7 +12,8 @@
         DynamicRowHeight,
         ExpandableRow,
         DynamicCells,
-        ListViewHeader
+        ListViewHeader,
+        ListViewFooter
     }
     public class HomeMenuItem
     {

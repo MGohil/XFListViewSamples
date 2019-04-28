@@ -62,6 +62,9 @@ namespace XFListViewSamples.Views.MainPages
                     case (int)MenuItemType.ListViewHeader:
                         MenuPages.Add(id, new NavigationPage(new ListViewHeaderPage() { Title = title }));
                         break;
+                    case (int)MenuItemType.ListViewFooter:
+                        MenuPages.Add(id, new NavigationPage(new ListViewFooterPage() { Title = title }));
+                        break;
                 }
             }
 
