@@ -59,9 +59,33 @@ namespace XFListViewSamples.Services
             return await Task.FromResult(users.FirstOrDefault(s => s.Id == id));
         }
 
-        public async Task<IEnumerable<UserModel>> GetItemsAsync(int page, int pageSize)
+        public async Task<IEnumerable<UserModel>> GetItemsAsync()
         {
-            return users.Skip(page * pageSize).Take(pageSize).ToList();
+            return users;
+        }
+
+        public async Task<PageableResponse<List<UserModel>>> GetItemsAsync(int page, int pageSize)
+        {
+            await Task.Delay(3000);
+
+            var result = new PageableResponse<List<UserModel>>();
+            int itemsCount = 0;
+            
+            if (users != null)
+            {
+                itemsCount = users.Count;
+             
+                //We will load max 50 items. You can increase this limit up to 1000, if you want to test with more records.
+                users = users.Take(50).ToList();
+            }
+
+            result.CurrentPage = page;
+            result.ItemsPerPage = pageSize;
+            result.TotalItems = itemsCount;
+            result.TotalPages = itemsCount / pageSize;
+            result.Items = users.Skip(page * pageSize).Take(pageSize).ToList();
+
+            return result;
         }
     }
 }

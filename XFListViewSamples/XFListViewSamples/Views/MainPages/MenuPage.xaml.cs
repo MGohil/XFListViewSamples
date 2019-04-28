@@ -30,6 +30,8 @@ namespace XFListViewSamples.Views.MainPages
                 new HomeMenuItem { Id = MenuItemType.DynamicCells, Title = "Dynamic Cells" },
                 new HomeMenuItem { Id = MenuItemType.ListViewHeader, Title = "ListView Header" },
                 new HomeMenuItem { Id = MenuItemType.ListViewFooter, Title = "ListView Footer" },
+                new HomeMenuItem { Id = MenuItemType.PullToRefresh, Title = "Pull To Refresh" },
+                new HomeMenuItem { Id = MenuItemType.LoadMoreItems, Title = "Load More Items" },
             };
 
             ListViewMenu.ItemsSource = menuItems;

@@ -13,7 +13,9 @@
         ExpandableRow,
         DynamicCells,
         ListViewHeader,
-        ListViewFooter
+        ListViewFooter,
+        PullToRefresh,
+        LoadMoreItems
     }
     public class HomeMenuItem
     {

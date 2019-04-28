@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFListViewSamples.Views.ListViewPages.ListViewOperations.LoadMoreOperationPage"
+             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.ListViewOperations"
+             xmlns:converters="clr-namespace:XFListViewSamples.Converters"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+    <ContentPage.BindingContext>
+        <local:LoadMoreOperationViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ListView
+            ItemsSource="{Binding Items}"
+            CachingStrategy="RecycleElement"
+            IsPullToRefreshEnabled="True"
+            RefreshControlColor="Accent"
+            IsRefreshing="{Binding IsBusy}"
+            RefreshCommand="{Binding RefreshUsersCommand}"
+            RowHeight="100">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="{Binding ProfilePic}" BackgroundColor="#F5F5F5"/>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" TextColor="Accent">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding FirstName}"/>
+                                            <Span Text=" "/>
+                                            <Span Text="{Binding LastName}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Grid.Row="1" Text="{Binding Email}"/>
+                                <Label Grid.Row="2" Text="{Binding Gender}"/>
+                            </Grid>
+                            <Label Grid.Column="2" Text="{Binding Id}" TextColor="#2196F3" FontSize="25" VerticalOptions="Center"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Footer>
+                <Grid HeightRequest="60" BackgroundColor="WhiteSmoke" IsVisible="{Binding IsLoadMoreVisible}">
+                    <Label Text="Load More..." IsVisible="{Binding IsLoadMoreBusy, Converter={StaticResource InverseBoolConverter}}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding LoadMoreUsersCommand}" NumberOfTapsRequired="1"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <ActivityIndicator IsVisible="{Binding IsLoadMoreBusy}" IsRunning="{Binding IsLoadMoreBusy}" d:IsRunning="True" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Grid>
+            </ListView.Footer>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

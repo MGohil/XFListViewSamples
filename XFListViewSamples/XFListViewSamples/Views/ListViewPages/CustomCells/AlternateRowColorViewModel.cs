@@ -23,7 +23,7 @@ namespace XFListViewSamples.Views.ListViewPages.CustomCells
             Task.Run(async () =>
             {
                 var userData = new UserDataService();
-                Items = (await userData.GetItemsAsync(1, 50)).ToList();
+                Items = (await userData.GetItemsAsync()).ToList();
             });
             
         }       

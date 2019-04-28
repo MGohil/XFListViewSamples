@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -71,6 +71,12 @@
     </Compile>
     <Compile Update="Views\ListViewPages\HeaderAndFooter\ListViewHeaderPage.xaml.cs">
       <DependentUpon>ListViewHeaderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ListViewPages\ListViewOperations\LoadMoreOperationPage.xaml.cs">
+      <DependentUpon>LoadMoreOperationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ListViewPages\ListViewOperations\PullToRefreshOperationPage.xaml.cs">
+      <DependentUpon>PullToRefreshOperationPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
