@@ -1,0 +1,95 @@
+﻿[
+	{
+	  "id" : 1,
+      "name" : "Dog",
+	  "category" : "Animals"
+    },
+	{
+	  "id" : 2,
+      "name" : "Cat",
+	  "category" : "Animals"
+    },
+	{
+	  "id" : 3,
+      "name" : "Cow",
+	  "category" : "Animals"
+    },
+	{
+	  "id" : 4,
+      "name" : "Duck",
+	  "category" : "Animals"
+    },
+	{
+	  "id" : 5,
+      "name" : "Cattle",
+	  "category" : "Animals"
+    },
+	{
+	  "id" : 6,
+      "name" : "Horse",
+	  "category" : "Animals"
+    },
+	{
+	  "id" : 7,
+      "name" : "Ship",
+	  "category" : "Animals"
+    },
+
+
+
+	{
+	  "id" : 8,
+      "name" : "Crow",
+	  "category" : "Birds"
+    },
+	{
+	  "id" : 9,
+      "name" : "Dove",
+	  "category" : "Birds"
+    },
+	{
+	  "id" : 10,
+      "name" : "Owl",
+	  "category" : "Birds"
+    },
+	{
+	  "id" : 11,
+      "name" : "Robin",
+	  "category" : "Birds"
+    },
+	{
+	  "id" : 12,
+      "name" : "Parrot",
+	  "category" : "Birds"
+    },
+	{
+	  "id" : 13,
+      "name" : "Ant",
+	  "category" : "Insects"
+    },
+	{
+	  "id" : 14,
+      "name" : "Spider",
+	  "category" : "Insects"
+    },
+	{
+	  "id" : 15,
+      "name" : "Honey Bees",
+	  "category" : "Insects"
+    },
+	{
+	  "id" : 16,
+      "name" : "Butterfly",
+	  "category" : "Insects"
+    },
+	{
+	  "id" : 17,
+      "name" : "Cockroach",
+	  "category" : "Insects"
+    },
+	{
+	  "id" : 18,
+      "name" : "House Fly",
+	  "category" : "Insects"
+    }
+]

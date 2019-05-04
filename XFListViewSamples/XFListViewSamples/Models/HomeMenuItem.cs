@@ -15,7 +15,8 @@
         ListViewHeader,
         ListViewFooter,
         PullToRefresh,
-        LoadMoreItems
+        LoadMoreItems,
+        BasicGrouping
     }
     public class HomeMenuItem
     {

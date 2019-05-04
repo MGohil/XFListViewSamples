@@ -33,7 +33,7 @@
                HorizontalOptions="End" 
                VerticalOptions="Start">
             <Label TextColor="White" 
-                   HorizontalTextAlignment="End" 
+                   HorizontalTextAlignment="Start" 
                    Text="{Binding Text}" 
                    d:Text="This is a design time text." />
         </Frame>

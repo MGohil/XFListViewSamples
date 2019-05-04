@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFListViewSamples.Views.ListViewPages.Grouping.BasicGroupingPage"
+             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.Grouping"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+    <ContentPage.BindingContext>
+        <local:BasicGroupingViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ListView 
+            IsGroupingEnabled="True"        
+            ItemsSource="{Binding GroupedItems}"  
+            HasUnevenRows="True">
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell Height="45">
+                        <Grid Padding="10" BackgroundColor="WhiteSmoke">
+                            <Label Text="{Binding Key}" d:Text="Animals" FontSize="18"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Height="40">
+                        <Grid Padding="10" BackgroundColor="White">
+                            <Label Text="{Binding Name}" d:Text="Horse" FontSize="15"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

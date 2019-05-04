@@ -8,6 +8,7 @@ using XFListViewSamples.Views.ListViewPages.BuiltInCells;
 using XFListViewSamples.Views.ListViewPages.CustomCells;
 using XFListViewSamples.Views.ListViewPages.HeaderAndFooter;
 using XFListViewSamples.Views.ListViewPages.ListViewOperations;
+using XFListViewSamples.Views.ListViewPages.Grouping;
 
 namespace XFListViewSamples.Views.MainPages
 {
@@ -71,6 +72,9 @@ namespace XFListViewSamples.Views.MainPages
                         break;
                     case (int)MenuItemType.LoadMoreItems:
                         MenuPages.Add(id, new NavigationPage(new LoadMoreOperationPage { Title = title }));
+                        break;
+                    case (int)MenuItemType.BasicGrouping:
+                        MenuPages.Add(id, new NavigationPage(new BasicGroupingPage { Title = title }));
                         break;
                 }
             }
