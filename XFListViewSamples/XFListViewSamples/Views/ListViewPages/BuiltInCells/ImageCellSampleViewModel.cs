@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Xamarin.Forms;
 using XFListViewSamples.Common;
+using MvvmHelpers;
 
 namespace XFListViewSamples.Views.ListViewPages.BuiltInCells
 {

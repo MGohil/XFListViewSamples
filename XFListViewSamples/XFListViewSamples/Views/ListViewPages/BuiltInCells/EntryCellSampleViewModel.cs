@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using XFListViewSamples.Common;
+using MvvmHelpers;
 
 namespace XFListViewSamples.Views.ListViewPages.BuiltInCells
 {

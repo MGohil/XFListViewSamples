@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using XFListViewSamples.Common;
 using XFListViewSamples.Services;
+using MvvmHelpers;
 
 namespace XFListViewSamples.Views.ListViewPages.CustomCells
 {
