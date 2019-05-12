@@ -69,6 +69,9 @@
     <Compile Update="Views\ListViewPages\BuiltInCells\TextCellSamplePage.xaml.cs">
       <DependentUpon>TextCellSamplePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\ListViewPages\Grouping\ExpandableGroupsListPage.xaml.cs">
+      <DependentUpon>ExpandableGroupsListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ListViewPages\HeaderAndFooter\ListViewFooterPage.xaml.cs">
       <DependentUpon>ListViewFooterPage.xaml</DependentUpon>
     </Compile>
@@ -132,5 +135,9 @@
     <None Update="Views\MainPages\MenuPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controls\" />
   </ItemGroup>
 </Project>

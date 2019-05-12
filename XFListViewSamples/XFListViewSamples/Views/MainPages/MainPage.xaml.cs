@@ -76,6 +76,9 @@ namespace XFListViewSamples.Views.MainPages
                     case (int)MenuItemType.BasicGrouping:
                         MenuPages.Add(id, new NavigationPage(new BasicGroupingPage { Title = title }));
                         break;
+                    case (int)MenuItemType.ExpandableGroupList:
+                        MenuPages.Add(id, new NavigationPage(new ExpandableGroupsListPage { Title = title }));
+                        break;
                 }
             }
 

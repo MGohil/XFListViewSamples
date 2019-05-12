@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFListViewSamples.Views.ListViewPages.Grouping.ExpandableGroupsListPage"
+             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.Grouping"
+             xmlns:controls="clr-namespace:XFListViewSamples.Controls"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+    <ContentPage.BindingContext>
+        <local:ExpandableGroupsListViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ListView 
+            ItemsSource="{Binding GroupedItems}"  
+            IsGroupingEnabled="True"   
+            HasUnevenRows="True">
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell Height="50">
+                        <Grid Padding="5" BackgroundColor="WhiteSmoke">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GroupHeaderTapCommand}"/>
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="40"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" WidthRequest="30" Source="{Binding StateIcon, Mode=TwoWay}"/>
+                            <Label Grid.Column="1" Text="{Binding HeaderText}" VerticalOptions="Center" d:Text="Animals" FontSize="18"/>
+                            <controls:CheckBoxControl CheckBoxPosition="Right" 
+                                                      Grid.Column="2"
+                                                      CheckIcon="checkbox_checked.png" 
+                                                      UnCheckIcon="checkbox_unchecked.png" 
+                                                      HeightRequest="35"
+                                                      VerticalOptions="Center"
+                                                      IsChecked="{Binding IsGroupHeaderChecked, Mode=TwoWay}" 
+                                                      Command="{Binding GroupHeaderCheckChangedCommand}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Height="45">
+                        <Grid Padding="5" BackgroundColor="White">
+                            
+                            <Label Margin="30,0,0,0" Text="{Binding DisplayText}" VerticalOptions="Center" d:Text="Horse" FontSize="15"/>
+                            <controls:CheckBoxControl CheckBoxPosition="Right" 
+                                                      HeightRequest="35"
+                                                      CheckIcon="checkbox_checked.png" 
+                                                      UnCheckIcon="checkbox_unchecked.png" 
+                                                      VerticalOptions="Center"
+                                                      IsChecked="{Binding IsSelected, Mode=TwoWay}" 
+                                                      Command="{Binding ItemCheckChangedCommand}"
+                                                      />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

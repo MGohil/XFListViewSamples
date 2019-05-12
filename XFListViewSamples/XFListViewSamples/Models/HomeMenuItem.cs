@@ -16,7 +16,8 @@
         ListViewFooter,
         PullToRefresh,
         LoadMoreItems,
-        BasicGrouping
+        BasicGrouping,
+        ExpandableGroupList
     }
     public class HomeMenuItem
     {
