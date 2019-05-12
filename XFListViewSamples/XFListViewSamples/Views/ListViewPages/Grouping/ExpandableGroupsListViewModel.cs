@@ -1,4 +1,5 @@
 ﻿using MvvmHelpers;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -20,61 +21,54 @@ namespace XFListViewSamples.Views.ListViewPages.Grouping
 
         public ExpandableGroupsListViewModel()
         {
-            Task.Run(async() =>
+            Task.Run(async () =>
             {
                 var livingItemsDataServicce = new LifeDataService();
                 var livingItems = (await livingItemsDataServicce.GetItemsAsync()).ToList();
 
-                var G = livingItems.GroupBy(x => x.Category).Select(x => new ObservableGroupCollection<string, LifeOnPlanetModel>(x)).ToList();
+                var groups = livingItems.GroupBy(x => x.Category).Select(x => new ObservableGroupCollection<string, LifeOnPlanetModel>(x)).ToList();
+
+                //This is required to invoke on main thread otherwise it will throw the exception
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                    foreach (var item in G)
+                    foreach (var group in groups)
                     {
                         GroupedItems.Add(
                             new GroupViewModel
                             (
-                                new GroupModel
-                                (
-                                    header: item.Key,
-                                    items: new ObservableCollection<GroupItemModel>(item.Select(i => new GroupItemModel(i.Id, i.Name)))
-                                )
+                                groupTitle: group.Key,
+                                groupChildItems: group.Select(i => new GroupItemModel(i.Id, i.Name, i.IsSelected)).ToList()
                             ));
                     }
                 });
-                               
+
             });
-        }       
+        }
     }
 
     /// <summary>
     /// Class to handle all actions for Groups.
-    /// It contains 
-    ///     - The collection of Groups. 
-    ///     - Property to say if Group is Expanded or Collapsed
     /// </summary>
     public class GroupViewModel : ObservableRangeCollection<GroupItemModel>, INotifyPropertyChanged
     {
         #region Fields        
-        // It's a backup variable for storing CountryViewModel objects
-        private ObservableRangeCollection<GroupItemModel> _itemCollection = new ObservableRangeCollection<GroupItemModel>();
-        public GroupModel GroupModel { get; set; }
+        private readonly ObservableRangeCollection<GroupItemModel> _groupChildItemCollection = new ObservableRangeCollection<GroupItemModel>();
         #endregion
 
         #region Constructor
-        public GroupViewModel(GroupModel groupModel, bool expanded = true)
+        public GroupViewModel(string groupTitle, List<GroupItemModel> groupChildItems, bool groupExpanded = true)
         {
-            GroupModel = groupModel;
-            _expanded = expanded;
-            _isGroupHeaderChecked = groupModel.IsGroupHeaderChecked;
+            _groupTitle = groupTitle;
+            _expanded = groupExpanded;
 
-            foreach (GroupItemModel item in groupModel.Items)
+            foreach (GroupItemModel childItem in groupChildItems)
             {
-                item.ItemCheckChangedCommand = new Command(ItemCheckChangedCommandExecute);
-                _itemCollection.Add(item);
+                childItem.ItemCheckChangedCommand = new Command(ItemCheckChangedCommandExecute);
+                _groupChildItemCollection.Add(childItem);
             }
-            if (expanded)
+            if (groupExpanded)
             {
-                AddRange(_itemCollection);
+                AddRange(_groupChildItemCollection);
             }
         }
         #endregion
@@ -96,7 +90,7 @@ namespace XFListViewSamples.Views.ListViewPages.Grouping
                     OnPropertyChanged(new PropertyChangedEventArgs("StateIcon"));
                     if (_expanded)
                     {
-                        AddRange(_itemCollection);
+                        AddRange(_groupChildItemCollection);
                     }
                     else
                     {
@@ -126,12 +120,24 @@ namespace XFListViewSamples.Views.ListViewPages.Grouping
         /// <summary>
         /// Gets the Expand / Collpase state icon of the Group, based on wheather the Group is expanded or collapsed state
         /// </summary>
-        public string StateIcon { get { return Expanded ? "collapse.png" : "expand.ing"; } }
+        public string StateIcon { get { return Expanded ? "collapse.png" : "expand.png"; } }
 
         /// <summary>
-        /// Text which binds as GroupHeader's Text Label
+        /// Text which binds as GroupTitle's Text Label
         /// </summary>
-        public string HeaderText { get { return GroupModel.HeaderText; } }
+        private string _groupTitle;
+        public string GroupTitle
+        {
+            get { return _groupTitle; }
+            set
+            {
+                if (_groupTitle != value)
+                {
+                    _groupTitle = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("GroupTitle"));
+                }
+            }
+        }
         #endregion
 
         #region Commands
@@ -169,7 +175,7 @@ namespace XFListViewSamples.Views.ListViewPages.Grouping
         /// </summary>
         private void ItemCheckChangedCommandExecute()
         {
-            IsGroupHeaderChecked = _itemCollection.All(x => x.IsSelected);
+            IsGroupHeaderChecked = _groupChildItemCollection.All(x => x.IsSelected);
         }
         /// <summary>
         /// It expands or collpases the Group header 
@@ -185,14 +191,20 @@ namespace XFListViewSamples.Views.ListViewPages.Grouping
         private void GroupHeaderCheckChangeCommandExecute()
         {
             Expanded = true;
-            GroupModel.Items.ToList().ForEach(x => x.IsSelected = IsGroupHeaderChecked);
-            ReplaceRange(_itemCollection);
+            _groupChildItemCollection.ToList().ForEach(x => x.IsSelected = IsGroupHeaderChecked);
+            ReplaceRange(_groupChildItemCollection);
         }
         #endregion
     }
 
     public class GroupItemModel : ObservableObject
     {
+        public GroupItemModel(int id, string displayText, bool isSelected = false)
+        {
+            Id = id;
+            IsSelected = isSelected;
+            DisplayText = displayText;
+        }
         public int Id { get; set; }
         public string DisplayText { get; set; }
 
@@ -203,26 +215,6 @@ namespace XFListViewSamples.Views.ListViewPages.Grouping
         {
             get { return _isSelected; }
             set { SetProperty(ref _isSelected, value); }
-        }
-
-        public GroupItemModel(int id, string displayText, bool isSelected = false)
-        {
-            Id = id;
-            IsSelected = isSelected;
-            DisplayText = displayText;
-        }
-    }
-
-    public class GroupModel
-    {
-        public string HeaderText { get; set; }
-        public bool IsGroupHeaderChecked { get; set; }
-        public ObservableCollection<GroupItemModel> Items { get; set; }
-        public GroupModel(string header, ObservableCollection<GroupItemModel> items, bool isGroupHeaderChecked = false)
-        {
-            HeaderText = header;
-            Items = items;
-            IsGroupHeaderChecked = isGroupHeaderChecked;
-        }
+        }        
     }
 }

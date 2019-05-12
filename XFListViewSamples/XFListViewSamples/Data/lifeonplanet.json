@@ -2,37 +2,44 @@
 	{
 	  "id" : 1,
       "name" : "Dog",
-	  "category" : "Animals"
+	  "category" : "Animals",
+	  "isselected" : true
     },
 	{
 	  "id" : 2,
       "name" : "Cat",
-	  "category" : "Animals"
+	  "category" : "Animals",
+	  "isselected" : false
     },
 	{
 	  "id" : 3,
       "name" : "Cow",
-	  "category" : "Animals"
+	  "category" : "Animals",
+	  "isselected" : true
     },
 	{
 	  "id" : 4,
       "name" : "Duck",
-	  "category" : "Animals"
+	  "category" : "Animals",
+	  "isselected" : true
     },
 	{
 	  "id" : 5,
       "name" : "Cattle",
-	  "category" : "Animals"
+	  "category" : "Animals",
+	  "isselected" : true
     },
 	{
 	  "id" : 6,
       "name" : "Horse",
-	  "category" : "Animals"
+	  "category" : "Animals",
+	  "isselected" : false
     },
 	{
 	  "id" : 7,
       "name" : "Ship",
-	  "category" : "Animals"
+	  "category" : "Animals",
+	  "isselected" : false
     },
 
 
@@ -45,51 +52,61 @@
 	{
 	  "id" : 9,
       "name" : "Dove",
-	  "category" : "Birds"
+	  "category" : "Birds",
+	  "isselected" : false
     },
 	{
 	  "id" : 10,
       "name" : "Owl",
-	  "category" : "Birds"
+	  "category" : "Birds",
+	  "isselected" : false
     },
 	{
 	  "id" : 11,
       "name" : "Robin",
-	  "category" : "Birds"
+	  "category" : "Birds",
+	  "isselected" : false
     },
 	{
 	  "id" : 12,
       "name" : "Parrot",
-	  "category" : "Birds"
+	  "category" : "Birds",
+	  "isselected" : false
     },
 	{
 	  "id" : 13,
       "name" : "Ant",
-	  "category" : "Insects"
+	  "category" : "Insects",
+	  "isselected" : false
     },
 	{
 	  "id" : 14,
       "name" : "Spider",
-	  "category" : "Insects"
+	  "category" : "Insects",
+	  "isselected" : false
     },
 	{
 	  "id" : 15,
       "name" : "Honey Bees",
-	  "category" : "Insects"
+	  "category" : "Insects",
+	  "isselected" : false
     },
 	{
 	  "id" : 16,
       "name" : "Butterfly",
-	  "category" : "Insects"
+	  "category" : "Insects",
+	  "isselected" : false
     },
 	{
 	  "id" : 17,
       "name" : "Cockroach",
-	  "category" : "Insects"
+	  "category" : "Insects",
+	  "isselected" : false
     },
 	{
 	  "id" : 18,
       "name" : "House Fly",
-	  "category" : "Insects"
+	  "category" : "Insects",
+	  "isselected" : false
     }
 ]

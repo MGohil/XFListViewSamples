@@ -12,5 +12,8 @@ namespace XFListViewSamples.Models
 
         [JsonProperty("category")]
         public string Category { get; set; }
+
+        [JsonProperty("isselected")]
+        public bool IsSelected { get; set; }
     }
 }

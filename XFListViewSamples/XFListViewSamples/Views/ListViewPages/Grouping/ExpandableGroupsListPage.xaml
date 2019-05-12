@@ -28,7 +28,7 @@
                                 <ColumnDefinition Width="40"/>
                             </Grid.ColumnDefinitions>
                             <Image Grid.Column="0" WidthRequest="30" Source="{Binding StateIcon, Mode=TwoWay}"/>
-                            <Label Grid.Column="1" Text="{Binding HeaderText}" VerticalOptions="Center" d:Text="Animals" FontSize="18"/>
+                            <Label Grid.Column="1" Text="{Binding GroupTitle}" VerticalOptions="Center" d:Text="Animals" FontSize="18"/>
                             <controls:CheckBoxControl CheckBoxPosition="Right" 
                                                       Grid.Column="2"
                                                       CheckIcon="checkbox_checked.png" 
