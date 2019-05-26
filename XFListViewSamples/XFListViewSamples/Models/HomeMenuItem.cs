@@ -17,7 +17,8 @@
         PullToRefresh,
         LoadMoreItems,
         BasicGrouping,
-        ExpandableGroupList
+        ExpandableGroupList,
+        ReOrderListViewItems
     }
     public class HomeMenuItem
     {

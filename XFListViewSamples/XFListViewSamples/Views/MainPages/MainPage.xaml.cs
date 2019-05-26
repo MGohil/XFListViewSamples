@@ -79,6 +79,9 @@ namespace XFListViewSamples.Views.MainPages
                     case (int)MenuItemType.ExpandableGroupList:
                         MenuPages.Add(id, new NavigationPage(new ExpandableGroupsListPage { Title = title }));
                         break;
+                    case (int)MenuItemType.ReOrderListViewItems:
+                        MenuPages.Add(id, new NavigationPage(new ReOrderListViewItemsPage { Title = title }));
+                        break;
                 }
             }
 

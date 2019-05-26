@@ -34,6 +34,7 @@ namespace XFListViewSamples.Views.MainPages
                 new HomeMenuItem { Id = MenuItemType.LoadMoreItems, Title = "Load More Items" },
                 new HomeMenuItem { Id = MenuItemType.BasicGrouping, Title = "Basic Grouping" },
                 new HomeMenuItem { Id = MenuItemType.ExpandableGroupList, Title = "Expandable Groups" },
+                new HomeMenuItem { Id = MenuItemType.ReOrderListViewItems, Title = "ReOrder Items" },
             };
 
             ListViewMenu.ItemsSource = menuItems;

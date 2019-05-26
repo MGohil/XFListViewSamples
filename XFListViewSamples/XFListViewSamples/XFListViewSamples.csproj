@@ -78,6 +78,9 @@
     <Compile Update="Views\ListViewPages\HeaderAndFooter\ListViewHeaderPage.xaml.cs">
       <DependentUpon>ListViewHeaderPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\ListViewPages\ListViewOperations\ReOrderListViewItemsPage.xaml.cs">
+      <DependentUpon>ReOrderListViewItemsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ListViewPages\ListViewOperations\LoadMoreOperationPage.xaml.cs">
       <DependentUpon>LoadMoreOperationPage.xaml</DependentUpon>
     </Compile>

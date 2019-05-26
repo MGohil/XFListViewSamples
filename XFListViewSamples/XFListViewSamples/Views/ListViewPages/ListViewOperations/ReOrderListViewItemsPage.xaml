@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFListViewSamples.Views.ListViewPages.ListViewOperations.ReOrderListViewItemsPage"
+             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.ListViewOperations"
+             xmlns:converters="clr-namespace:XFListViewSamples.Converters"
+             xmlns:controls="clr-namespace:XFListViewSamples.Controls"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+    <ContentPage.BindingContext>
+        <local:ReOrderListViewItemsViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <controls:DraggableListViewControl
+            ItemsSource="{Binding Items}"
+            DraggingColor="Aqua"
+            RowHeight="60">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <controls:DraggableViewCellControl>
+                        <Grid Padding="10" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="{Binding ProfilePic}" BackgroundColor="#F5F5F5"/>
+                            <Label Grid.Column="1" TextColor="Accent" VerticalOptions="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text=" "/>
+                                        <Span Text="{Binding Id}" TextColor="Blue"/>
+                                        <Span Text="    "/>
+                                        <Span Text="{Binding FirstName}"/>
+                                        <Span Text=" "/>
+                                        <Span Text="{Binding LastName}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <!--<Label Grid.Column="2" Text="{Binding Id}" TextColor="#2196F3" FontSize="25" VerticalOptions="Center"/>-->
+                            <Image Grid.Column="2" VerticalOptions="Center" Source="reorder.png" />
+                        </Grid>
+                    </controls:DraggableViewCellControl>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </controls:DraggableListViewControl>
+    </ContentPage.Content>
+</ContentPage>
