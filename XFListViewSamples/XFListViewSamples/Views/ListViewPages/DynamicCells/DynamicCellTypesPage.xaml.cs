@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XFListViewSamples.Controls;
 
 namespace XFListViewSamples.Views.ListViewPages.DynamicCells
 {
@@ -9,6 +10,7 @@ namespace XFListViewSamples.Views.ListViewPages.DynamicCells
         public DynamicCellTypesPage()
         {
             InitializeComponent();
+            this.AddActivityIndicatorControl();
         }
 
         private DynamicCellTypesViewModel ViewModel

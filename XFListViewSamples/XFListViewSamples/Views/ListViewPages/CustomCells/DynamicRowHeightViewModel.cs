@@ -21,8 +21,10 @@ namespace XFListViewSamples.Views.ListViewPages.CustomCells
         {
             Task.Run(async () =>
             {
+                IsBusy = true;
                 var fruitesData = new FruitesDataService();
                 Items = (await fruitesData.GetItemsAsync(1, 50)).ToList();
+                IsBusy = false;
             });
         }
     }

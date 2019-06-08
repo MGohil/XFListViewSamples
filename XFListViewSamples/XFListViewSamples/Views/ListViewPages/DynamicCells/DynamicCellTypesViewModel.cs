@@ -35,8 +35,10 @@ namespace XFListViewSamples.Views.ListViewPages.DynamicCells
 
             Task.Run(async () =>
             {
+                IsBusy = true;
                 var chatData = new ChatDataService();
                 Messages = new ObservableCollection<ChatMessageModel>((await chatData.GetItemsAsync(1, 50)).ToList());
+                IsBusy = false;
                 ScrollToBottomAction?.Invoke();
             });
         }

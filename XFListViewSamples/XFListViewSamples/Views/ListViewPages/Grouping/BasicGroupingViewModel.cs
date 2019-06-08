@@ -22,10 +22,12 @@ namespace XFListViewSamples.Views.ListViewPages.Grouping
         {
             Task.Run(async() =>
             {
+                IsBusy = true;
                 var livingItemsDataServicce = new LifeDataService();
                 var livingItems = (await livingItemsDataServicce.GetItemsAsync()).ToList();
 
                 GroupedItems = livingItems.GroupBy(x => x.Category).Select(x => new ObservableGroupCollection<string, LifeOnPlanetModel>(x)).ToList();
+                IsBusy = false;
                
             });
         }       

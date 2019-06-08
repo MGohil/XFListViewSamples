@@ -66,6 +66,7 @@ namespace XFListViewSamples.Views.ListViewPages.HeaderAndFooter
 
             Task.Run(async () =>
             {
+                IsBusy = true;
                 var incomeExpenseData = new IncomeExpenseDataService();
                 IncomeExpenses = (await incomeExpenseData.GetItemsAsync(1, 50)).ToList();
 
@@ -76,6 +77,7 @@ namespace XFListViewSamples.Views.ListViewPages.HeaderAndFooter
                 ExpensePercentage = ((double)TotalExpense / (double)TotalIncome) * 100;
                 SavingsPercentage = 100 - ExpensePercentage;
                 IsItemsLoaded = true;
+                IsBusy = false;
             });
         }
     }

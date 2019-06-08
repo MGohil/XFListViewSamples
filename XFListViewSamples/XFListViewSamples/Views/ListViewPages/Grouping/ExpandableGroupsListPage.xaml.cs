@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XFListViewSamples.Controls;
 
 namespace XFListViewSamples.Views.ListViewPages.Grouping
 {
@@ -9,6 +10,7 @@ namespace XFListViewSamples.Views.ListViewPages.Grouping
         public ExpandableGroupsListPage()
         {
             InitializeComponent();
+            this.AddActivityIndicatorControl();
         }
     }
 }

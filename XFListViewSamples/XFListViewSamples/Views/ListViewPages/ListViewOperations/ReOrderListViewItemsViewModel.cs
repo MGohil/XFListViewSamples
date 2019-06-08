@@ -24,12 +24,13 @@ namespace XFListViewSamples.Views.ListViewPages.ListViewOperations
 
         private async Task LoadItems()
         {
-
+            IsBusy = true;
             var result = (await userDataService.GetItemsAsync(0, 20));
             if (result != null)
             {
                 Items = new ObservableCollection<UserModel>(result.Items);
             }
+            IsBusy = false;
         }
     }
 }

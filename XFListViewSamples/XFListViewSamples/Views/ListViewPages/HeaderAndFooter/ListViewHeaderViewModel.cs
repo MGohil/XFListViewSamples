@@ -28,9 +28,11 @@ namespace XFListViewSamples.Views.ListViewPages.HeaderAndFooter
         {
             Task.Run(async () =>
             {
+                IsBusy = true;
                 var weatherData = new WeatherDataService();
                 Weathers = (await weatherData.GetItemsAsync(1, 50)).ToList();
                 SelectedWeather = Weathers.FirstOrDefault();
+                IsBusy = false;
             });
         }
     }
