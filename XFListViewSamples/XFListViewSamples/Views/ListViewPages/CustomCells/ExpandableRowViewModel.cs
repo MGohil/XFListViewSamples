@@ -10,7 +10,7 @@ namespace XFListViewSamples.Views.ListViewPages.CustomCells
 {
     public class ExpandableRowViewModel : BaseViewModel
     {
-        public Command<Fruite> ShowDescriptionCommand { get; }
+        public Command<ViewCell> ShowDescriptionCommand { get; }
 
         public List<Fruite> items = new List<Fruite>();
         public List<Fruite> Items
@@ -21,7 +21,7 @@ namespace XFListViewSamples.Views.ListViewPages.CustomCells
 
         public ExpandableRowViewModel()
         {
-            ShowDescriptionCommand = new Command<Fruite>((fruite) => { ShowDescriptionCommandExecute(fruite); });
+            ShowDescriptionCommand = new Command<ViewCell>((viewCell) => { ShowDescriptionCommandExecute(viewCell); });
              
             Task.Run(async () =>
             {
@@ -49,9 +49,14 @@ namespace XFListViewSamples.Views.ListViewPages.CustomCells
             });
         }
 
-        private void ShowDescriptionCommandExecute(Fruite fruiteModel)
+        private void ShowDescriptionCommandExecute(ViewCell viewCell)
         {
-            fruiteModel.IsDescriptionVisible = !fruiteModel.IsDescriptionVisible;
+            //fruiteModel.IsDescriptionVisible = !fruiteModel.IsDescriptionVisible;
+
+            ViewCell cell = (viewCell as ViewCell);
+            Fruite vm = cell.BindingContext as Fruite;
+            vm.IsDescriptionVisible = !vm.IsDescriptionVisible;
+            cell.ForceUpdateSize();
         }
 
         public class Fruite : ObservableObject

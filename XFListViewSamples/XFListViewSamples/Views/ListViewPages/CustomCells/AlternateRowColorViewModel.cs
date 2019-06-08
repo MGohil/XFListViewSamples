@@ -7,6 +7,8 @@ using XFListViewSamples.Common;
 using XFListViewSamples.Models;
 using XFListViewSamples.Services;
 using MvvmHelpers;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using Xamarin.Forms.PlatformConfiguration;
 
 namespace XFListViewSamples.Views.ListViewPages.CustomCells
 {
@@ -33,9 +35,9 @@ namespace XFListViewSamples.Views.ListViewPages.CustomCells
     /// <summary>
     /// This class is the extended custom Listview class, created to handle the Odd / Even row color
     /// </summary>
-    public class AlternateRowListView : ListView
+    public class AlternateRowListView : Xamarin.Forms.ListView
     {
-        protected override void SetupContent(Cell cell, int index)
+        protected override void SetupContent(Xamarin.Forms.Cell cell, int index)
         {
             base.SetupContent(cell, index);
             var currentViewCell = cell as ViewCell;
@@ -48,7 +50,7 @@ namespace XFListViewSamples.Views.ListViewPages.CustomCells
 
         public AlternateRowListView(ListViewCachingStrategy strategy) : base(strategy)
         {
-
+            base.On<iOS>().SetSeparatorStyle(SeparatorStyle.FullWidth);
         }
 
         public AlternateRowListView()

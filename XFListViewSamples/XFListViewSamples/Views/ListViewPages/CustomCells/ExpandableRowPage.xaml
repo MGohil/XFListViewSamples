@@ -19,7 +19,7 @@
             HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
+                    <ViewCell x:Name="viewCell">
                         <Grid Padding="10" RowSpacing="0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="60"/>
@@ -47,7 +47,7 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-                                    <Button Grid.Row="1" Command="{Binding Source={x:Reference fruiteListView}, Path=BindingContext.ShowDescriptionCommand}" CommandParameter="{Binding .}" HorizontalOptions="End" VerticalOptions="End" HeightRequest="20" WidthRequest="60" Padding="0" FontSize="12" BackgroundColor="Transparent" TextColor="Gray" CornerRadius="5">
+                                    <Button Grid.Row="1" Command="{Binding Source={x:Reference fruiteListView}, Path=BindingContext.ShowDescriptionCommand}" CommandParameter="{x:Reference viewCell}" HorizontalOptions="End" VerticalOptions="End" HeightRequest="20" WidthRequest="60" Padding="0" FontSize="12" BackgroundColor="Transparent" TextColor="Gray" CornerRadius="5">
                                         <Button.Triggers>
                                             <DataTrigger TargetType="Button" Binding="{Binding IsDescriptionVisible}" Value="True">
                                                 <Setter Property="Text" Value="Less..."/>
