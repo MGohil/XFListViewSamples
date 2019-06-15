@@ -4,40 +4,49 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using NavigationPage = Xamarin.Forms.NavigationPage;
+using XFListViewSamples.Views.ListViewPages.Grouping;
+using System.Linq;
 
 namespace XFListViewSamples.Views.MainPages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : ContentPage
     {
-        MainPage RootPage { get => (Application.Current.MainPage as NavigationPage).CurrentPage as MainPage; }
+        MainPage RootPage { get => (Xamarin.Forms.Application.Current.MainPage as NavigationPage).CurrentPage as MainPage; }
         List<HomeMenuItem> menuItems;
         public MenuPage()
         {
             InitializeComponent();
+            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem { Id = MenuItemType.TextCellSample, Title = "Simple TextCell" },
-                new HomeMenuItem { Id = MenuItemType.SwitchCellSample, Title = "Simple SwitchCell" },
-                new HomeMenuItem { Id = MenuItemType.EntryCellSample, Title = "Simple EntryCell" },
-                new HomeMenuItem { Id = MenuItemType.ImageCellSample, Title = "Simple ImageCell" },
-                new HomeMenuItem { Id = MenuItemType.CustomCellOne, Title = "Custom Cell 1" },
-                new HomeMenuItem { Id = MenuItemType.CustomCellTwo, Title = "Custom Cell 2" },
-                new HomeMenuItem { Id = MenuItemType.AlternateRowColor, Title = "Alternate RowColor" },
-                new HomeMenuItem { Id = MenuItemType.DynamicRowHeight, Title = "Dynamic Row Height" },
-                new HomeMenuItem { Id = MenuItemType.ExpandableRow, Title = "Expandable Row" },
-                new HomeMenuItem { Id = MenuItemType.DynamicCells, Title = "Dynamic Cells" },
-                new HomeMenuItem { Id = MenuItemType.ListViewHeader, Title = "ListView Header" },
-                new HomeMenuItem { Id = MenuItemType.ListViewFooter, Title = "ListView Footer" },
-                new HomeMenuItem { Id = MenuItemType.PullToRefresh, Title = "Pull To Refresh" },
-                new HomeMenuItem { Id = MenuItemType.LoadMoreItems, Title = "Load More Items" },
-                new HomeMenuItem { Id = MenuItemType.BasicGrouping, Title = "Basic Grouping" },
-                new HomeMenuItem { Id = MenuItemType.ExpandableGroupList, Title = "Expandable Groups" },
-                new HomeMenuItem { Id = MenuItemType.ReOrderListViewItems, Title = "ReOrder Items" },
+                new HomeMenuItem { Id = MenuItemType.TextCellSample, Category = MenuCategory.BuiltInCells, Title = "Text Cell" },
+                new HomeMenuItem { Id = MenuItemType.SwitchCellSample, Category = MenuCategory.BuiltInCells, Title = "Switch Cell" },
+                new HomeMenuItem { Id = MenuItemType.EntryCellSample, Category = MenuCategory.BuiltInCells, Title = "Entry Cell" },
+                new HomeMenuItem { Id = MenuItemType.ImageCellSample, Category = MenuCategory.BuiltInCells, Title = "Image Cell" },
+
+                new HomeMenuItem { Id = MenuItemType.CustomCellOne, Category = MenuCategory.CustomCells, Title = "Custom Cell 1" },
+                new HomeMenuItem { Id = MenuItemType.CustomCellTwo, Category = MenuCategory.CustomCells, Title = "Custom Cell 2" },
+                new HomeMenuItem { Id = MenuItemType.AlternateRowColor, Category = MenuCategory.CustomCells, Title = "Alternate Row Color" },
+                new HomeMenuItem { Id = MenuItemType.DynamicRowHeight, Category = MenuCategory.CustomCells, Title = "Dynamic Cell Height" },
+                new HomeMenuItem { Id = MenuItemType.ExpandableRow, Category = MenuCategory.CustomCells, Title = "Expandable Cell" },
+                new HomeMenuItem { Id = MenuItemType.DynamicCells, Category = MenuCategory.DynamicCells, Title = "Dynamic Cell Templates" },
+
+                new HomeMenuItem { Id = MenuItemType.ListViewHeader, Category = MenuCategory.HeaderFooter, Title = "ListView Header" },
+                new HomeMenuItem { Id = MenuItemType.ListViewFooter, Category = MenuCategory.HeaderFooter, Title = "ListView Footer" },
+
+                new HomeMenuItem { Id = MenuItemType.PullToRefresh, Category = MenuCategory.Operations, Title = "Pull To Refresh" },
+                new HomeMenuItem { Id = MenuItemType.LoadMoreItems, Category = MenuCategory.Operations, Title = "Load More Items" },
+                new HomeMenuItem { Id = MenuItemType.ReOrderListViewItems, Category = MenuCategory.Operations, Title = "Re-Order Items" },
+
+                new HomeMenuItem { Id = MenuItemType.BasicGrouping, Category = MenuCategory.Grouping, Title = "Basic Grouping" },
+                new HomeMenuItem { Id = MenuItemType.ExpandableGroupList, Category = MenuCategory.Grouping, Title = "Expandable Groups" },
             };
 
-            ListViewMenu.ItemsSource = menuItems;
+            ListViewMenu.ItemsSource = menuItems.GroupBy(x => x.Category).Select(x => new ObservableGroupCollection<string, HomeMenuItem>(x)).ToList();
 
             ListViewMenu.SelectedItem = menuItems[0];
             ListViewMenu.ItemSelected += async (sender, e) =>

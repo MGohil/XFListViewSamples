@@ -4,12 +4,21 @@
              x:Class="XFListViewSamples.Views.MainPages.MenuPage"
              Title="Menu">
     <StackLayout VerticalOptions="FillAndExpand">
-        <ListView x:Name="ListViewMenu">
+        <ListView x:Name="ListViewMenu" IsGroupingEnabled="True">
             <ListView.Header>
                 <Grid HeightRequest="70">
                     <Label Text="ListView Samples" VerticalOptions="Center" Margin="10" FontSize="20"/>
                 </Grid>
             </ListView.Header>
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell Height="45">
+                        <Grid Padding="10" BackgroundColor="WhiteSmoke">
+                            <Label Text="{Binding Key}" FontSize="18" TextColor="Black"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

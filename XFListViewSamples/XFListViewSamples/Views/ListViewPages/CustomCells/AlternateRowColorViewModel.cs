@@ -25,8 +25,10 @@ namespace XFListViewSamples.Views.ListViewPages.CustomCells
         {
             Task.Run(async () =>
             {
+                IsBusy = true;
                 var userData = new UserDataService();
                 Items = (await userData.GetItemsAsync()).ToList();
+                IsBusy = false;
             });
             
         }       
@@ -51,6 +53,7 @@ namespace XFListViewSamples.Views.ListViewPages.CustomCells
         public AlternateRowListView(ListViewCachingStrategy strategy) : base(strategy)
         {
             base.On<iOS>().SetSeparatorStyle(SeparatorStyle.FullWidth);
+            Footer = "";
         }
 
         public AlternateRowListView()
