@@ -2,46 +2,50 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XFListViewSamples.Views.ListViewPages.CustomCells.CustomCellOnePage"
-             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.CustomCells">
+             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.CustomCells"
+             BackgroundColor="White">
     <ContentPage.BindingContext>
         <local:CustomCellOneViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ListView
+        <Grid>
+            <ListView
             ItemsSource="{Binding Items}"
             CachingStrategy="RecycleElement"
             RowHeight="100">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid Padding="10">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="80"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" Source="{Binding ProfilePic}" BackgroundColor="#F5F5F5"/>
-                            <Grid Grid.Column="1">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Label Grid.Row="0" TextColor="Accent">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="{Binding FirstName}"/>
-                                            <Span Text=" "/>
-                                            <Span Text="{Binding LastName}"/>
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
-                                <Label Grid.Row="1" Text="{Binding Email}"/>
-                                <Label Grid.Row="2" Text="{Binding Gender}"/>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="{Binding ProfilePic}" BackgroundColor="#F5F5F5"/>
+                                <Grid Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" TextColor="Accent">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding FirstName}"/>
+                                                <Span Text=" "/>
+                                                <Span Text="{Binding LastName}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Row="1" Text="{Binding Email}"/>
+                                    <Label Grid.Row="2" Text="{Binding Gender}"/>
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

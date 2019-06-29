@@ -3,18 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XFListViewSamples.Views.ListViewPages.BuiltInCells.TextCellSamplePage"
              xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.BuiltInCells"
-             Title="Simple TextCell">
+             Title="Simple TextCell"
+             BackgroundColor="White">
     <ContentPage.BindingContext>
         <local:TextCellSampleViewModel/>
     </ContentPage.BindingContext>
-    <ListView
+    <Grid>
+        <ListView
             ItemsSource="{Binding Items}"
             CachingStrategy="RecycleElement">
-        <!--TextCell is a Built in Cell, Which Represnet only Text in a List-->
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Text="{Binding .}" TextColor="Black"/>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+            <!--TextCell is a Built in Cell, Which Represnet only Text in a List-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!--Ex. 1 : Only Text-->
+                    <!--<TextCell Text="{Binding FullName}" TextColor="Gray"/>-->
+
+                    <!--Ex. 2 : Text & Detail Text-->
+                    <TextCell Text="{Binding FullName}" Detail="{Binding Email}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+    </Grid>
 </ContentPage>

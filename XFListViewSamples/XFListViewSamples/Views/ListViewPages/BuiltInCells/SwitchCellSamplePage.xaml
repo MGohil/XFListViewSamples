@@ -2,18 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XFListViewSamples.Views.ListViewPages.BuiltInCells.SwitchCellSamplePage"
-             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.BuiltInCells">
+             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.BuiltInCells"
+             BackgroundColor="White">
     <ContentPage.BindingContext>
         <local:SwitchCellSampleViewModel/>
     </ContentPage.BindingContext>
-    <ListView
+    <Grid>
+        <ListView
             ItemsSource="{Binding Items}"
             CachingStrategy="RecycleElement">
-        <!--SwitchCell is a Built in Cell, Which Represnet On/OFF Toggling kind of functionality through List-->
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <SwitchCell Text="{Binding AppName}" On="{Binding IsEnabled}"/>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+            <!--SwitchCell is a Built in Cell, Which Represnet On/OFF Toggling kind of functionality through List-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <SwitchCell Text="{Binding AppName}" On="{Binding IsEnabled}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+    </Grid>
 </ContentPage>

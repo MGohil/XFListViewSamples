@@ -1,19 +1,30 @@
 ﻿using System.Collections.Generic;
-using XFListViewSamples.Common;
 using MvvmHelpers;
+using System.Threading.Tasks;
+using XFListViewSamples.Services;
+using System.Linq;
+using XFListViewSamples.Models;
 
 namespace XFListViewSamples.Views.ListViewPages.BuiltInCells
 {
     public class TextCellSampleViewModel : BaseViewModel
     {
-        public List<string> Items { get; set; } = new List<string>();
+        public List<UserModel> items = new List<UserModel>();
+        public List<UserModel> Items
+        {
+            get { return items; }
+            set { SetProperty(ref items, value); }
+        }
 
         public TextCellSampleViewModel()
         {
-            for (int i = 1; i <= 100; i++)
+            Task.Run(async () =>
             {
-                Items.Add($"Item {i}");
-            }
+                IsBusy = true;
+                var userData = new UserDataService();
+                Items = (await userData.GetItemsAsync(0, 50)).Items;
+                IsBusy = false;
+            });
         }
     }
 }

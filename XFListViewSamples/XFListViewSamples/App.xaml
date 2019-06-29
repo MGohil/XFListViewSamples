@@ -18,6 +18,11 @@
                 <Setter Property="RefreshControlColor" Value="Accent " />
                 <Setter Property="Footer" Value="" />
             </Style>
+            <Style TargetType="ActivityIndicator">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="Color" Value="Accent"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

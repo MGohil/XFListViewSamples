@@ -3,47 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XFListViewSamples.Views.ListViewPages.CustomCells.DynamicRowHeightPage"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"  
-             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.CustomCells">
+             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.CustomCells"
+             BackgroundColor="White">
     <ContentPage.BindingContext>
         <local:DynamicRowHeightViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ListView
+        <Grid>
+            <ListView
             ItemsSource="{Binding Items}"
             CachingStrategy="RecycleElement"
             HasUnevenRows="True">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid Padding="10">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="80"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <StackLayout Orientation="Vertical" Grid.Column="0" VerticalOptions="Start">
-                                <ff:CachedImage Source="{Binding ImageURL}" BackgroundColor="#F5F5F5" />
-                                <Label Text="{Binding Price}" HorizontalOptions="Center" TextColor="Orange" FontSize="20">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="$"/>
-                                            <Span Text="{Binding Price}"/>
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
-                                <Button Text="BUY" WidthRequest="60" HeightRequest="25" Padding="0" FontSize="12" BorderColor="Orange" TextColor="Orange" BackgroundColor="White" BorderWidth="1" CornerRadius="5"/>
-                            </StackLayout>
-                            <Grid Grid.Column="1">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <Label Grid.Row="0" TextColor="Accent" Text="{Binding Name}"/>
-                                <Label Grid.Row="1" Text="{Binding About}"/>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Orientation="Vertical" Grid.Column="0" VerticalOptions="Start">
+                                    <ff:CachedImage Source="{Binding ImageURL}" BackgroundColor="#F5F5F5" />
+                                    <Label Text="{Binding Price}" HorizontalOptions="Center" TextColor="Orange" FontSize="20">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="$"/>
+                                                <Span Text="{Binding Price}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Button Text="BUY" WidthRequest="60" HeightRequest="25" Padding="0" FontSize="12" BorderColor="Orange" TextColor="Orange" BackgroundColor="White" BorderWidth="1" CornerRadius="5"/>
+                                </StackLayout>
+                                <Grid Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" TextColor="Accent" Text="{Binding Name}"/>
+                                    <Label Grid.Row="1" Text="{Binding About}"/>
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

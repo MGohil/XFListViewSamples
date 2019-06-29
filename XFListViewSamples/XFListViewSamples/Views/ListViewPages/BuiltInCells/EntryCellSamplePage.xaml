@@ -2,31 +2,35 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XFListViewSamples.Views.ListViewPages.BuiltInCells.EntryCellSamplePage"
-             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.BuiltInCells">
+             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.BuiltInCells"
+             BackgroundColor="White">
     <ContentPage.BindingContext>
         <local:EntryCellSampleViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="DONE"/>
     </ContentPage.ToolbarItems>
-    <ListView
+    <Grid>
+        <ListView
             ItemsSource="{Binding Items}"
             CachingStrategy="RecycleElement" SeparatorVisibility="None">
-        <!--EntryCell is a Built in Cell, with a label and a single line text entry field.-->
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <!--1. Textboxes with only PlaceHolder text-->
-                <EntryCell Placeholder="{Binding PlaceHolderText}"/>
-                
-                <!--2. Textboxes with Title and only Placeholder text-->
-                <!--<EntryCell Label="{Binding Title}" Placeholder="{Binding PlaceHolderText}"/>-->
-                
-                <!--3. Textboxes with Title and Textbox value pre-filled-->
-                <!--<EntryCell Label="{Binding Title}" Text="{Binding Text}" />-->
-                
-                <!--4. Textboxes with Title and Textbox value pre-filled and also with Placeholder text-->
-                <!--<EntryCell Label="{Binding Title}" Text="{Binding Text}" Placeholder="{Binding PlaceHolderText}"/>-->
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+            <!--EntryCell is a Built in Cell, with a label and a single line text entry field.-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!--1. Textboxes with only PlaceHolder text-->
+                    <EntryCell Placeholder="{Binding PlaceHolderText}"/>
+
+                    <!--2. Textboxes with Title and only Placeholder text-->
+                    <!--<EntryCell Label="{Binding Title}" Placeholder="{Binding PlaceHolderText}"/>-->
+
+                    <!--3. Textboxes with Title and Textbox value pre-filled-->
+                    <!--<EntryCell Label="{Binding Title}" Text="{Binding Text}" />-->
+
+                    <!--4. Textboxes with Title and Textbox value pre-filled and also with Placeholder text-->
+                    <!--<EntryCell Label="{Binding Title}" Text="{Binding Text}" Placeholder="{Binding PlaceHolderText}"/>-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+    </Grid>
 </ContentPage>

@@ -1,6 +1,5 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XFListViewSamples.Controls;
 
 namespace XFListViewSamples.Views.ListViewPages.ListViewOperations
 {
@@ -11,7 +10,6 @@ namespace XFListViewSamples.Views.ListViewPages.ListViewOperations
         public ReOrderListViewItemsPage()
         {
             InitializeComponent();
-            this.AddActivityIndicatorControl();
         }
     }
 }

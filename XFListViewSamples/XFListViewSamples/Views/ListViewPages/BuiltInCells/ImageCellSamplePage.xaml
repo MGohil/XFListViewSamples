@@ -2,18 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XFListViewSamples.Views.ListViewPages.BuiltInCells.ImageCellSamplePage"
-             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.BuiltInCells">
+             xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.BuiltInCells"
+             BackgroundColor="White">
     <ContentPage.BindingContext>
         <local:ImageCellSampleViewModel/>
     </ContentPage.BindingContext>
-    <ListView
+    <Grid>
+        <ListView
             ItemsSource="{Binding Items}"
             CachingStrategy="RecycleElement">
-        <!--ImageCell is a Built in Cell, which is similar to the TextCell but has an Image also-->
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ImageCell Text="{Binding Title}" Detail="{Binding Description}" ImageSource="{Binding MyImageURL}"/>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+            <!--ImageCell is a Built in Cell, which is similar to the TextCell but has an Image also-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell Text="{Binding Title}" Detail="{Binding Description}" ImageSource="{Binding MyImageURL}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+    </Grid>
 </ContentPage>

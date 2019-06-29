@@ -1,6 +1,5 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XFListViewSamples.Controls;
 
 namespace XFListViewSamples.Views.ListViewPages.CustomCells
 {
@@ -10,7 +9,6 @@ namespace XFListViewSamples.Views.ListViewPages.CustomCells
         public AlternateRowColorPage()
         {
             InitializeComponent();
-            this.AddActivityIndicatorControl();
         }
     }
 }

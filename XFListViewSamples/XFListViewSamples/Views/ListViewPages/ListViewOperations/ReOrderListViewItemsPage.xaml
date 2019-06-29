@@ -7,7 +7,8 @@
              xmlns:controls="clr-namespace:XFListViewSamples.Controls"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d">
+             mc:Ignorable="d"
+             BackgroundColor="White">
     <ContentPage.BindingContext>
         <local:ReOrderListViewItemsViewModel/>
     </ContentPage.BindingContext>
@@ -15,38 +16,41 @@
         <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <controls:DraggableListViewControl
+        <Grid>
+            <controls:DraggableListViewControl
             ItemsSource="{Binding Items}"
             DraggingColor="Aqua"
             RowHeight="60">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <controls:DraggableViewCellControl>
-                        <Grid Padding="10" BackgroundColor="White">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="50"/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" Source="{Binding ProfilePic}" BackgroundColor="#F5F5F5"/>
-                            <Label Grid.Column="1" TextColor="Accent" VerticalOptions="Center">
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text=" "/>
-                                        <Span Text="{Binding Id}" TextColor="Blue"/>
-                                        <Span Text="    "/>
-                                        <Span Text="{Binding FirstName}"/>
-                                        <Span Text=" "/>
-                                        <Span Text="{Binding LastName}"/>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
-                            <!--<Label Grid.Column="2" Text="{Binding Id}" TextColor="#2196F3" FontSize="25" VerticalOptions="Center"/>-->
-                            <Image Grid.Column="2" VerticalOptions="Center" Source="reorder.png" />
-                        </Grid>
-                    </controls:DraggableViewCellControl>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </controls:DraggableListViewControl>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <controls:DraggableViewCellControl>
+                            <Grid Padding="10" BackgroundColor="White">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Source="{Binding ProfilePic}" BackgroundColor="#F5F5F5"/>
+                                <Label Grid.Column="1" TextColor="Accent" VerticalOptions="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text=" "/>
+                                            <Span Text="{Binding Id}" TextColor="Blue"/>
+                                            <Span Text="    "/>
+                                            <Span Text="{Binding FirstName}"/>
+                                            <Span Text=" "/>
+                                            <Span Text="{Binding LastName}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <!--<Label Grid.Column="2" Text="{Binding Id}" TextColor="#2196F3" FontSize="25" VerticalOptions="Center"/>-->
+                                <Image Grid.Column="2" VerticalOptions="Center" Source="reorder.png" />
+                            </Grid>
+                        </controls:DraggableViewCellControl>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </controls:DraggableListViewControl>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

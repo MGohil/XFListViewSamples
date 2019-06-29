@@ -4,54 +4,58 @@
              x:Class="XFListViewSamples.Views.ListViewPages.CustomCells.CustomCellTwoPage"
              xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.CustomCells"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"  
-             xmlns:ffTransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations">
+             xmlns:ffTransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             BackgroundColor="White">
     <ContentPage.BindingContext>
         <local:CustomCellTwoViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ListView
+        <Grid>
+            <ListView
             ItemsSource="{Binding Items}"
             CachingStrategy="RecycleElement"
             BackgroundColor="WhiteSmoke"
             SeparatorVisibility="None"
             RowHeight="100">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Frame CornerRadius="10" HasShadow="False" Padding="0" Margin="10,10,10,0"  BackgroundColor="White">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="80"/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <ff:CachedImage Grid.Column="0" Source="{Binding ProfilePic}" Margin="10,0,0,0">
-                                    <ff:CachedImage.Transformations>
-                                        <ffTransformations:RoundedTransformation Radius="320" BorderHexColor="#FF4081" BorderSize="5" />
-                                    </ff:CachedImage.Transformations>
-                                </ff:CachedImage>
-                                <Grid Grid.Column="1" Margin="5">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-                                    <Label Grid.Row="0" TextColor="Accent">
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <Span Text="{Binding FirstName}"/>
-                                                <Span Text=" "/>
-                                                <Span Text="{Binding LastName}"/>
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                    </Label>
-                                    <Label Grid.Row="1" Text="{Binding Email}"/>
-                                    <Label Grid.Row="2" Text="{Binding Gender}"/>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame CornerRadius="10" HasShadow="False" Padding="0" Margin="10,10,10,0"  BackgroundColor="White">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <ff:CachedImage Grid.Column="0" Source="{Binding ProfilePic}" Margin="10,0,0,0">
+                                        <ff:CachedImage.Transformations>
+                                            <ffTransformations:RoundedTransformation Radius="320" BorderHexColor="#FF4081" BorderSize="5" />
+                                        </ff:CachedImage.Transformations>
+                                    </ff:CachedImage>
+                                    <Grid Grid.Column="1" Margin="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0" TextColor="Accent">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding FirstName}"/>
+                                                    <Span Text=" "/>
+                                                    <Span Text="{Binding LastName}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label Grid.Row="1" Text="{Binding Email}"/>
+                                        <Label Grid.Row="2" Text="{Binding Gender}"/>
+                                    </Grid>
                                 </Grid>
-                            </Grid>
-                        </Frame>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

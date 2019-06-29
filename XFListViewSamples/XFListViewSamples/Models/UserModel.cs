@@ -21,5 +21,8 @@ namespace XFListViewSamples.Models
 
         [JsonProperty("profile_pic")]
         public string ProfilePic { get; set; }
+
+        [JsonIgnore]
+        public string FullName { get { return $"{ FirstName } { LastName }"; } }
     }
 }

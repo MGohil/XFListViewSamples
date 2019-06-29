@@ -5,6 +5,7 @@
              xmlns:local="clr-namespace:XFListViewSamples.Views.ListViewPages.DynamicCells"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             BackgroundColor="White"
              mc:Ignorable="d">
     <ContentPage.BindingContext>
         <local:DynamicCellTypesViewModel/>
@@ -15,32 +16,33 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid RowSpacing="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="50" />
-            </Grid.RowDefinitions>
-            <ListView x:Name="chatListView"
+        <Grid>
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <ListView x:Name="chatListView"
                       Grid.Row="0"
                       ItemTemplate="{StaticResource ChatDataTemplateSelector}" 
                       ItemsSource="{Binding Messages}"
                       HasUnevenRows="True" 
                       SeparatorVisibility="None">
-            </ListView>
-            <Grid x:Name="MessageControls"
+                </ListView>
+                <Grid x:Name="MessageControls"
                   Grid.Row="1"
                   Padding="5"
                   HeightRequest="50"
                   BackgroundColor="#EFEFF4">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="70"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Entry Grid.Column="0" 
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="70"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Entry Grid.Column="0" 
                        HeightRequest="35" 
                        Placeholder="Send Message"
                        Text="{Binding TextMessage}"/>
-                <Button Grid.Column="1" 
+                    <Button Grid.Column="1" 
                         Text="Send" 
                         Padding="0"
                         VerticalOptions="Center"
@@ -49,7 +51,9 @@
                         TextColor="White"
                         BackgroundColor="Accent"
                         Command="{Binding SendMessageCommand}"/>
+                </Grid>
             </Grid>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

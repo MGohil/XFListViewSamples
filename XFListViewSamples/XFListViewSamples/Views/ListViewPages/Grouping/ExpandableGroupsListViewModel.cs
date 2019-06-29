@@ -19,8 +19,18 @@ namespace XFListViewSamples.Views.ListViewPages.Grouping
             set { SetProperty(ref groupedItems, value); }
         }
 
+        private int selectedItemsCount;
+        public int SelectedItemsCount
+        {
+            get { return selectedItemsCount; }
+            set { SetProperty(ref selectedItemsCount, value); }
+
+        }
+
         public ExpandableGroupsListViewModel()
         {
+            MessagingCenter.Subscribe<GroupViewModel>(this, "UpdateSelectedItemsCountMessage", (e) => { UpdateSelectedItemsCount(); });
+
             Task.Run(async () =>
             {
                 IsBusy = true;
@@ -41,9 +51,17 @@ namespace XFListViewSamples.Views.ListViewPages.Grouping
                                 groupChildItems: group.Select(i => new GroupItemModel(i.Id, i.Name, i.IsSelected)).ToList()
                             ));
                     }
+
+                    //Show selected items count initialy when page loads
+                    UpdateSelectedItemsCount();
                 });
 
             });
+        }
+
+        private void UpdateSelectedItemsCount()
+        {
+            SelectedItemsCount = groupedItems.Sum(x => x.Count(y => y.IsSelected));
         }
     }
 
@@ -177,6 +195,7 @@ namespace XFListViewSamples.Views.ListViewPages.Grouping
         private void ItemCheckChangedCommandExecute()
         {
             IsGroupHeaderChecked = _groupChildItemCollection.All(x => x.IsSelected);
+            MessagingCenter.Send(this, "UpdateSelectedItemsCountMessage");
         }
         /// <summary>
         /// It expands or collpases the Group header 
@@ -194,6 +213,7 @@ namespace XFListViewSamples.Views.ListViewPages.Grouping
             Expanded = true;
             _groupChildItemCollection.ToList().ForEach(x => x.IsSelected = IsGroupHeaderChecked);
             ReplaceRange(_groupChildItemCollection);
+            MessagingCenter.Send(this, "UpdateSelectedItemsCountMessage");
         }
         #endregion
     }

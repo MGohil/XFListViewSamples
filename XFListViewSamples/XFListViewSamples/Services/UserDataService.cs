@@ -66,7 +66,7 @@ namespace XFListViewSamples.Services
 
         public async Task<PageableResponse<List<UserModel>>> GetItemsAsync(int page, int pageSize)
         {
-            await Task.Delay(3000);
+            await Task.Delay(1000);
 
             var result = new PageableResponse<List<UserModel>>();
             int itemsCount = 0;
